@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenDataTravelFood - 地方美食資料練習</title>
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        :root {
+    --dora-blue: #00A0E9;       /* 哆啦A夢經典藍 */
+    --dora-red: #ED1C24;        /* 紅色項圈與鼻子 */
+    --dora-yellow: #FED400;     /* 金色小鈴鐺 */
+    --dora-white: #FFFFFF;      /* 白腹部與手 */
+    --dora-black: #2B2B2B;      /* 漫畫風深色粗邊線 */
+    --dora-bg: #E6F5FD;         /* 淺藍背景 */
+    --dora-radius: 20px;        /* 圓滾滾圓角 */
+    --dora-border: 3px solid var(--dora-black);
+    --dora-shadow: 4px 4px 0px var(--dora-black);
+    --dora-font: "Comic Sans MS", "PingFang TC", "微軟正黑體", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dora-bg);
+    font-family: var(--dora-font);
+    padding-bottom: 60px;
+}
+
+/* 頂部標題：藍色底 + 紅色項圈 + 金黃色小鈴鐺裝飾 */
+.title-01 {
+    background-color: var(--dora-blue);
+    color: var(--dora-white);
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 20px 10px 16px;
+    border-bottom: 8px solid var(--dora-red);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    text-shadow: 2px 2px 0px var(--dora-black);
+}
+
+.title-01::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    background-color: var(--dora-yellow);
+    border: 2px solid var(--dora-black);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 外框包裝容器：漫畫白底與圓角粗框 */
+.wrapper {
+    width: 1024px;
+    margin: 50px auto 0;
+    padding: 25px;
+    background-color: var(--dora-white);
+    border: var(--dora-border);
+    border-radius: var(--dora-radius);
+    box-shadow: var(--dora-shadow);
+    overflow: hidden;
+}
+
+/* 美食卡片：漫畫風格邊框、硬陰影與浮動互動 */
+.demo {
+    width: 32%;
+    margin-right: 1.33%;
+    margin-top: 20px;
+    float: left;
+    background-color: var(--dora-white);
+    border: var(--dora-border);
+    border-radius: var(--dora-radius);
+    box-shadow: var(--dora-shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.demo:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 0px var(--dora-blue);
+}
+
+/* 店家圖片區域 */
+.demo .logo {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 3px solid var(--dora-black);
+}
+
+/* 卡片文字區域 */
+.demo .title-04 {
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dora-black);
+    line-height: 1.5;
+}
+
+.demo .title-04:last-child {
+    padding-top: 0;
+    padding-bottom: 16px;
+    color: var(--dora-red);
+}
+
+/* 響應式 RWD */
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .demo {
+        width: 100%;
+        margin-right: 0;
+        float: none;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="display-1 fw-900 title-01">地方美食餐廳列表</div>
+    <div class="wrapper" id="foodlist">
+        <div class="demo">
+            <div class="logo bg-img" style="background-image: url(images/egg__c01.png);"></div>
+            <P class="title-04">店家：ＸＸＸ</P>
+            <P class="title-04">電話：ＸＸＸ</P>
+        </div>
+
+
+
+    </div>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="js/TravelFood.js"></script>
+    <script>
+        console.log(food);
+        food.forEach(function (item) {
+            // console.log(item.Name);
+            // console.log(item.City);
+            // console.log(item.Email);
+            $("#foodlist").append('<div class="demo" id="foodlist"><div class="logo bg-img" style="background-image: url(' + item.PicURL + ');"></div><P class="title-04">店家：' + item.Name + '</P><P class="title-04">電話：' + item.Tel + '</P></div >');
+        });
+
+
+    </script>
+</body>
+
+</html>

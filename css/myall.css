@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@100..900&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
+
+:root {
+    /* 星巴克風格配色變數 */
+    --sbux-deep-green: #1E3932;
+    /* 深綠色 */
+    --sbux-core-green: #00704A;
+    /* 經典星巴克綠 */
+    --sbux-light-mint: #D4E9E2;
+    /* 淺薄荷綠 */
+    --sbux-cream-white: #F2F0EB;
+    /* 奶油白 */
+    --sbux-coffee-brown: #27251F;
+    /* 咖啡黑棕色 */
+    --sbux-gold: #CBA258;
+    /* 點綴金 */
+}
+
+body {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.huninn-regular {
+    font-family: "Huninn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.zen-maru-gothic-light {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.zen-maru-gothic-regular {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.zen-maru-gothic-medium {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.zen-maru-gothic-bold {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.zen-maru-gothic-black {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.fw-100 {
+    font-weight: 100;
+}
+
+.fw-200 {
+    font-weight: 200;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
+/* 標題 */
+.title-01 {
+    font-size: 32px;
+    font-width: 900;
+    text-align: center;
+    color: #ff0062;
+}
+
+.title-02 {
+    font-size: 52px;
+    font-width: 700;
+    text-align: center;
+    color: #807300;
+}
+
+.title-03 {
+    font-size: 12px;
+    font-width: 500;
+    text-align: center;
+    color: #00ccff;
+}
+
+.title-04 {
+    font-size: 16px;
+    font-width: 800;
+    font-weight: bold;
+    text-align: left;
+    color: #586163;
+}
+
+
+/* 背景圖 */
+.bg-img {
+    background-position: center center;
+    background-size: cover;
+}
