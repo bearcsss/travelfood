@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samu Bootstrap - Table(表格)</Table>
+  </title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/myall.css">
+  <style>
+    :root {
+      --border01: #f58b29;
+    }
+
+    @media screen and (max-width: 768px) {
+      .table-rwd thead {
+        display: none;
+      }
+
+      .table-rwd tbody tr {
+        display: block;
+        margin-top: 15px;
+        border: 1px solid var(--border01);
+        border-radius: 5px;
+      }
+
+      .table-rwd tbody tr td {
+        display: block;
+        overflow: hidden;
+      }
+
+      /* 偽元素 */
+      .table-rwd tbody tr td::before {
+        content: attr(data-th) ":";
+        font-weight: 900;
+        color: blueviolet;
+        font-size: 20px;
+        display: block;
+        float: left;
+        width: 30%;
+        text-align: right;
+        padding-right: 10px;
+      }
+
+      .table-rwd tbody tr td span {
+        display: block;
+        float: left;
+        width: 70%;
+        font-size: 18px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="display-2 fw-900 text-center mt-4">飲料產品列表</div>
+
+    <table class="table mt-4 table-bordered table-sm table-rwd">
+      <thead class="table-dark text-center">
+        <tr class="table-light">
+          <th>產品編號</th>
+          <th>產品名稱</th>
+          <th>產品價格</th>
+          <th>產品數量</th>
+          <th>產品備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-th="產品編號"><span>01</span></td>
+          <td data-th="產品名稱"><span>美式咖啡</span></td>
+          <td data-th="產品價格"><span>60元</span></td>
+          <td data-th="產品數量"><span>10</span></td>
+          <td data-th="產品備註">
+            <span>是我關鍵字小孩利益機場來源記住來到舉辦，創業走勢有點大幅公路集中看起來，練習類別城市學者另外歌曲以後課堂實在，還能人士投資者各位有限責任公司，官員開關欣賞經濟發展通知。</span></td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td>拿鐵咖啡</td>
+          <td>60</td>
+          <td>10</td>
+          <td>是我關鍵字小孩利益機場來源記住來到舉辦，創業走勢有點大幅公路集中看起來，練習類別城市學者另外歌曲以後課堂實在，還能人士投資者各位有限責任公司，官員開關欣賞經濟發展通知。</td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td>濃縮咖啡</td>
+          <td>100</td>
+          <td>10</td>
+          <td>是我關鍵字小孩利益機場來源記住來到舉辦，創業走勢有點大幅公路集中看起來，練習類別城市學者另外歌曲以後課堂實在，還能人士投資者各位有限責任公司，官員開關欣賞經濟發展通知。</td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td>濃縮咖啡</td>
+          <td>100</td>
+          <td>10</td>
+          <td>無糖去冰</td>
+        </tr>
+        <tr>
+          <td>05</td>
+          <td>濃縮咖啡</td>
+          <td>100</td>
+          <td>10</td>
+          <td>無糖去冰</td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td>濃縮咖啡</td>
+          <td>100</td>
+          <td>10</td>
+          <td>無糖去冰</td>
+        </tr>
+        <tr>
+          <td>07</td>
+          <td>濃縮咖啡</td>
+          <td>100</td>
+          <td>10</td>
+          <td>無糖去冰</td>
+        </tr>
+        <tr>
+          <td>08</td>
+          <td>濃縮咖啡</td>
+          <td>100</td>
+          <td>10</td>
+          <td>無糖去冰</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  </div><!-- div container -->
+
+
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link disabled" fw-900>POWER BY Samu 2026
+      </a>
+    </li>
+  </ul>
+
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-4.0.0.js"></script>
+  <script src="js/TravelFood.js"></script>
+  <script>
+    console.log(food);
+
+    $("#foodlist").empty();
+    food.forEach(function (item) {
+      const strHTML = `<div class="col">
+                          <div class="card p-1">
+                              <img src="${item.PicURL}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <div class="display-6 fw-900 text-start my-2">${item.Name}</div>
+                                    <div class="h5 text-center mb-2">地址：${item.Name} ${item.Town} ${item.Address}</div>
+                                        <div class="h5 text-end mb-2">電話：${item.Tel}</div>
+                                      <p class="card-text text-truncate">
+                                      ${item.HostWords}</p>
+                            </div>
+                          </div>
+                       </div>`;
+
+      $("#foodlist").append(strHTML);
+    });
+  </script>
+
+</body>
+
+</html>

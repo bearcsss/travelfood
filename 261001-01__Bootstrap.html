@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">選單</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-3" id="foodlist">
+      <div class="col">
+        <div class="card p-5">
+          <img src="images/istockphoto-610974126-612x612.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="display-6 fw-900 text-start mt-3">餐廳名稱</div>
+            <div class="h5 text-center mb-4">地址：ＸＸＸＸＸ</div>
+            <h5 class="h5 text-end mb-4">電話：0911-123456</h5>
+            <p class="card-text text-truncate">
+              體內都有警方一直，全新其他的圍繞眼前公開一批網際最終意大利重視隱藏先後魔法不限，寵物條例私服透露人口令人顯然不代表溫柔，幹什麼可惜上下文化，是什麼渠道再次要有，主題貸款是他增加聽說一次，改善第三新竹烏日空間住宅手術以前，難以困難絶不仔細屬性股份溫暖欣賞一。
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+  </div><!-- div container -->
+
+
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link disabled" fw-900>POWER BY Samu 2026
+      </a>
+    </li>
+  </ul>
+
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-4.0.0.js"></script>
+  <script src="js/TravelFood.js"></script>
+  <script>
+    console.log(food);
+
+    $("#foodlist").empty();
+    food.forEach(function (item) {
+      const strHTML = `<div class="col">
+                          <div class="card p-1">
+                              <img src="${item.PicURL}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <div class="display-6 fw-900 text-start my-2">${item.Name}</div>
+                                    <div class="h5 text-center mb-2">地址：${item.Name} ${item.Town} ${item.Address}</div>
+                                        <div class="h5 text-end mb-2">電話：${item.Tel}</div>
+                                      <p class="card-text text-truncate">
+                                      ${item.HostWords}</p>
+                            </div>
+                          </div>
+                       </div>`;
+
+      $("#foodlist").append(strHTML);
+    });
+  </script>
+
+</body>
+
+</html>
