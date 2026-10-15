@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samu學時間軸Timeline</title>
+  <title>Samu學卷軸roller</title>
   </title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/myall.css">
@@ -13,21 +13,18 @@
       height: 180px;
     }
 
-
     /* roller top */
     .roller-t {
       position: relative;
       overflow: hidden;
-
     }
 
     .roller-t .rollerbox-t {
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: rgba(223, 126, 126, 0.9);
-      /* transform: translate(-100%); */
-      transform: translate(-100%);
+      background-color: rgba(223, 126, 126, 0.3);
+      transform: translateY(-100%);
       transition: transform 2s;
       display: flex;
       justify-content: center;
@@ -48,9 +45,8 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: rgba(223, 126, 126, 0.9);
-      /* transform: translate(-100%); */
-      transform: translate(100%);
+      background-color: rgba(223, 126, 126, 0.3);
+      transform: translateY(100%);
       transition: transform 2s;
       display: flex;
       justify-content: center;
@@ -61,19 +57,17 @@
       transform: translateY(0);
     }
 
-/* roller left */
+    /* roller left */
     .roller-l {
       position: relative;
       overflow: hidden;
-
     }
 
     .roller-l .rollerbox-l {
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: rgba(223, 126, 126, 0.9);
-      /* transform: translate(-100%); */
+      background-color: rgba(223, 126, 126, 0.3);
       transform: translateX(-100%);
       transition: transform 2s;
       display: flex;
@@ -85,21 +79,17 @@
       transform: translateX(0);
     }
 
-
-
-/* roller right */
+    /* roller right */
     .roller-r {
       position: relative;
       overflow: hidden;
-
     }
 
     .roller-r .rollerbox-r {
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: rgba(223, 126, 126, 0.9);
-      /* transform: translate(-100%); */
+      background-color: rgba(223, 126, 126, 0.3);
       transform: translateX(100%);
       transition: transform 2s;
       display: flex;
@@ -107,38 +97,25 @@
       align-items: center;
     }
 
-    .roller-l:hover .rollerbox-l {
+    .roller-r:hover .rollerbox-r {
       transform: translateX(0);
     }
-
-
-
-
-
   </style>
 </head>
 
 <body>
   <div class="container">
-
     <div class="row">
       <div class="col-6 mt-3">
-        <div class="box bg-info roller-t">
-          <div class="rollerbox-t">想法提交物流當年失去彩色引發，笑道。</div>
+        <div class="box bg-info roller-r">
+          <div class="rollerbox-r">想法提交物流當年失去彩色引發，笑道。</div>
         </div>
       </div>
     </div>
 
-
-
   </div><!-- div class="container" -->
 
-
-
-
-
   <script src="js/bootstrap.bundle.min.js"></script>
-
 
 </body>
 
