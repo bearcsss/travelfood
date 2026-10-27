@@ -4,59 +4,479 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAMU 學習歷程筆記</title>
+    <title>王近江的學習歷程筆記 - 浮世繪漫畫風</title>
+    <!-- 引入 Google Fonts 日系漢字與襯線字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/myall.css">
+
     <style>
-        /* CSS 語法 */
+        :root {
+            --washi-bg: #f4ecd8;        /* 和紙米黃 */
+            --sumi-ink: #1a1a1a;        /* 墨黑 */
+            --vermilion: #c83e2b;       /* 朱紅 */
+            --indigo-blue: #1d3557;     /* 藍染 / 普魯士藍 */
+            --gold-accent: #d4a373;     /* 金泥色 */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', 'Noto Serif TC', sans-serif;
+            background-color: var(--washi-bg);
+            color: var(--sumi-ink);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            /* 浮世繪背景圖（神奈川沖浪裏）搭配和紙漸層遮罩，確保前景文字清晰 */
+            background-image: 
+                linear-gradient(to bottom, rgba(244, 236, 216, 0.82) 0%, rgba(244, 236, 216, 0.72) 50%, rgba(29, 53, 87, 0.85) 100%),
+                url('https://upload.wikimedia.org/wikipedia/commons/a/a5/Tsunami_by_hokusai_19th_century.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        /* 浮世繪傳統木版畫外框裝飾 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            border: 4px solid var(--sumi-ink);
+            outline: 2px solid var(--vermilion);
+            outline-offset: -8px;
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 頂部標題：浮世繪卷軸題字風格 */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .title-01 {
+            display: inline-block;
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--sumi-ink);
+            background: var(--washi-bg);
+            padding: 1rem 3rem;
+            border: 5px solid var(--sumi-ink);
+            box-shadow: 10px 10px 0px var(--vermilion), 10px 10px 0px 3px var(--sumi-ink);
+            position: relative;
+            letter-spacing: 0.15em;
+            transform: rotate(-1deg);
+        }
+
+        /* 落款朱印（印章裝飾） */
+        .hanko-seal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background-color: var(--vermilion);
+            color: #fff;
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 900;
+            font-size: 0.95rem;
+            line-height: 1.1;
+            border: 3px solid #8e2516;
+            border-radius: 6px;
+            position: absolute;
+            right: -28px;
+            bottom: -18px;
+            transform: rotate(12deg);
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+            user-select: none;
+        }
+
+        .subtitle {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--washi-bg);
+            background-color: var(--sumi-ink);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            letter-spacing: 0.2em;
+            border-radius: 4px;
+        }
+
+        /* 漫畫分鏡網格系統 */
+        .manga-grid {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.8rem 2.2rem;
+            padding: 1rem 0.5rem;
+        }
+
+        .manga-item {
+            position: relative;
+            display: flex;
+        }
+
+        /* 漫畫對話框主體 */
+        .speech-bubble {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            background-color: #ffffff;
+            /* 漫畫網點背景 (Screentone) */
+            background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1.2px, transparent 0);
+            background-size: 10px 10px;
+            color: var(--sumi-ink);
+            text-decoration: none;
+            padding: 1.6rem 1.4rem 1.4rem;
+            border: 4px solid var(--sumi-ink);
+            border-radius: 28px;
+            box-shadow: 7px 7px 0px var(--sumi-ink);
+            position: relative;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 700;
+            font-size: 1.15rem;
+            line-height: 1.45;
+        }
+
+        /* 奇數偶數對話框微微傾斜，營造手繪漫畫活潑感 */
+        .manga-item:nth-child(odd) .speech-bubble {
+            transform: rotate(-1deg);
+            border-radius: 32px 20px 28px 18px;
+        }
+
+        .manga-item:nth-child(even) .speech-bubble {
+            transform: rotate(1deg);
+            border-radius: 18px 32px 20px 30px;
+        }
+
+        /* 3的倍數使用「爆炸/強調框」效果 */
+        .manga-item:nth-child(3n) .speech-bubble {
+            background-color: #fffdf5;
+            border-width: 4px;
+            box-shadow: 7px 7px 0px var(--vermilion), 7px 7px 0px 3px var(--sumi-ink);
+        }
+
+        /* 對話框下方的尖角 (外層黑邊) */
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -22px;
+            left: 36px;
+            border-width: 22px 18px 0 0;
+            border-style: solid;
+            border-color: var(--sumi-ink) transparent transparent transparent;
+            display: block;
+            width: 0;
+            transition: transform 0.2s ease;
+        }
+
+        /* 對話框下方的尖角 (內層白底遮罩) */
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 40px;
+            border-width: 16px 13px 0 0;
+            border-style: solid;
+            border-color: #ffffff transparent transparent transparent;
+            display: block;
+            width: 0;
+            z-index: 1;
+            transition: border-color 0.2s ease;
+        }
+
+        /* 偶數對話框尖角改在右側 */
+        .manga-item:nth-child(even) .speech-bubble::after {
+            left: auto;
+            right: 40px;
+            border-width: 22px 0 0 18px;
+            border-color: var(--sumi-ink) transparent transparent transparent;
+        }
+
+        .manga-item:nth-child(even) .speech-bubble::before {
+            left: auto;
+            right: 44px;
+            border-width: 16px 0 0 13px;
+            border-color: #ffffff transparent transparent transparent;
+        }
+
+        /* 對話框左上角集數編號 */
+        .episode-tag {
+            display: inline-block;
+            align-self: flex-start;
+            background-color: var(--sumi-ink);
+            color: #fff;
+            font-size: 0.78rem;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-bottom: 0.65rem;
+            letter-spacing: 0.08em;
+            font-family: 'Noto Serif TC', serif;
+        }
+
+        .manga-item:nth-child(3n) .episode-tag {
+            background-color: var(--vermilion);
+        }
+
+        /* 漫畫狀聲詞裝飾 (ドン! / バン!) */
+        .sfx-badge {
+            position: absolute;
+            top: -16px;
+            right: 14px;
+            background: var(--vermilion);
+            color: #fff;
+            font-weight: 900;
+            font-size: 0.85rem;
+            padding: 3px 8px;
+            border: 3px solid var(--sumi-ink);
+            transform: rotate(10deg) scale(0.9);
+            opacity: 0;
+            transition: all 0.2s ease;
+            pointer-events: none;
+            box-shadow: 3px 3px 0 var(--sumi-ink);
+        }
+
+        /* 滑鼠懸停互動特效 */
+        .speech-bubble:hover {
+            transform: translateY(-8px) scale(1.03) rotate(0deg) !important;
+            background-color: #fff9db;
+            box-shadow: 12px 12px 0px var(--vermilion), 12px 12px 0px 3px var(--sumi-ink);
+            color: var(--vermilion);
+        }
+
+        .speech-bubble:hover::before {
+            border-color: #fff9db transparent transparent transparent;
+        }
+
+        .speech-bubble:hover .sfx-badge {
+            opacity: 1;
+            transform: rotate(14deg) scale(1.1);
+        }
+
+        /* 個人履歷表特別強調樣式 */
+        .highlight-resume .speech-bubble {
+            background-color: #ffe8cc;
+            border-color: var(--sumi-ink);
+        }
+        .highlight-resume .speech-bubble::before {
+            border-color: #ffe8cc transparent transparent transparent;
+        }
+
+        /* 頁尾裝飾 */
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            color: var(--washi-bg);
+            font-family: 'Noto Serif TC', serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-shadow: 2px 2px 0 var(--sumi-ink);
+        }
+
+        /* 響應式微調 */
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem 1rem 4rem;
+            }
+            .title-01 {
+                padding: 0.8rem 1.5rem;
+            }
+            .hanko-seal {
+                width: 42px;
+                height: 42px;
+                font-size: 0.8rem;
+                right: -12px;
+                bottom: -15px;
+            }
+            .manga-grid {
+                grid-template-columns: 1fr;
+                gap: 2.4rem;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="title-01">SAMU 學習歷程筆記</div>
+    <div class="container">
+        <!-- 浮世繪牌匾標題區 -->
+        <header>
+            <div class="title-01">
+                王近江的學習歷程筆記
+                <span class="hanko-seal">近江<br>之印</span>
+            </div>
+            <br>
+            <p class="subtitle">◆ 浮世繪 × 漫畫分鏡作品集 ◆</p>
+        </header>
 
-    <ul>
-        <li><a href="260924-01__new-01__RWD.html" target="_blank">RWD Web Page use AI-generated Starbucks style</a></li>
-        <li><a href="260930-01__OpenDataTravelFood__AIeditCSS.html" target="_blank">Open Data Travel Food use AI edit
-                CSS Style</a></li>
-        <li><a href="261001-01__Bootstrap.html" target="_blank">使用 Bootstrap 建立旅遊餐廳列表</a></li>
-        <li><a href="261001-02__Bootstrap__Table.html" target="_blank"> Bootstrap - table 表格練習 偽元素</a></li>
-        <li><a href="261006-01__Bootstrap__Table__RWD.html" target="_blank">地方美食餐廳列表 Bootstrap - Table(表格)</a></li>
-        <li><a href="261006-02__Bootstrap__ch6.html" target="_blank"> Samu 學 ch.6 Bootstrap - Web Slicing (切版)</a></li>
-        <li><a href="261006-03__Bootstrap__EX01.html" target="_blank">練習題 EX01 Web Slicing (切版)</a></li>
+        <!-- 漫畫對話框連結列表 -->
+        <ul class="manga-grid">
+            <li class="manga-item">
+                <a class="speech-bubble" href="260924-01__new-01__RWD.html" target="_blank">
+                    <span class="episode-tag">第一話</span>
+                    <span>RWD Web Page use AI-generated Starbucks style</span>
+                    <span class="sfx-badge">ドン!</span>
+                </a>
+            </li>
 
-        <li><a href="261008-01__Bootstrap__EX02.html" target="_blank">練習題 EX02 Web Slicing (切版)</a></li>
+            <li class="manga-item">
+                <a class="speech-bubble" href="260930-01__OpenDataTravelFood__AIeditCSS.html" target="_blank">
+                    <span class="episode-tag">第二話</span>
+                    <span>Open Data Travel Food use AI edit CSS Style</span>
+                    <span class="sfx-badge">パッ!</span>
+                </a>
+            </li>
 
-        <li><a href="261008-01__Bootstrap__EX02-1.html" target="_blank">Samu travel food json server</a></li>
+            <li class="manga-item">
+                <a class="speech-bubble" href="261001-01__Bootstrap.html" target="_blank">
+                    <span class="episode-tag">第三話</span>
+                    <span>使用 Bootstrap 建立旅遊餐廳列表</span>
+                    <span class="sfx-badge">うまい!</span>
+                </a>
+            </li>
 
-        <li><a href="261008-02__Bootstrap__Flex.html" target="_blank">Samu學Flex</a></li>
+            <li class="manga-item">
+                <a class="speech-bubble" href="261001-02__Bootstrap__Table.html" target="_blank">
+                    <span class="episode-tag">第四話</span>
+                    <span>Bootstrap - table 表格練習 偽元素</span>
+                    <span class="sfx-badge">シュッ!</span>
+                </a>
+            </li>
 
-        <li><a href="261013-01__Bootstrap__Timeline__Flex.html" target="_blank">Samu學Flex時間軸</a></li>
+            <li class="manga-item">
+                <a class="speech-bubble" href="261006-01__Bootstrap__Table__RWD.html" target="_blank">
+                    <span class="episode-tag">第五話</span>
+                    <span>地方美食餐廳列表 Bootstrap - Table(表格)</span>
+                    <span class="sfx-badge">ズン!</span>
+                </a>
+            </li>
 
-        <li><a href="261013-02__Bootstrap__Flex__roller.html" target="_blank">Samu學Flex捲簾特效</a></li>
+            <li class="manga-item">
+                <a class="speech-bubble" href="261006-02__Bootstrap__ch6.html" target="_blank">
+                    <span class="episode-tag">第六話</span>
+                    <span>Samu 學 ch.6 Bootstrap - Web Slicing (切版)</span>
+                    <span class="sfx-badge">スパッ!</span>
+                </a>
+            </li>
 
-        <li><a href="261015-01__Bootstrap__Forms.html" target="_blank">Samu學Forms(表單)</a></li>
+            <li class="manga-item">
+                <a class="speech-bubble" href="261006-03__Bootstrap__EX01.html" target="_blank">
+                    <span class="episode-tag">第七話</span>
+                    <span>練習題 EX01 Web Slicing (切版)</span>
+                    <span class="sfx-badge">よし!</span>
+                </a>
+            </li>
 
-        <li><a href="261015-01__Bootstrap__Forms-EX01.html" target="_blank">Samu學Forms表單排版(JS)</a></li>
+            <li class="manga-item">
+                <a class="speech-bubble" href="261008-01__Bootstrap__EX02.html" target="_blank">
+                    <span class="episode-tag">第八話</span>
+                    <span>練習題 EX02 Web Slicing (切版)</span>
+                    <span class="sfx-badge">メラメラ</span>
+                </a>
+            </li>
 
+            <li class="manga-item">
+                <a class="speech-bubble" href="261008-01__Bootstrap__EX02-1.html" target="_blank">
+                    <span class="episode-tag">第九話</span>
+                    <span>Samu travel food json server</span>
+                    <span class="sfx-badge">ピコン!</span>
+                </a>
+            </li>
 
+            <li class="manga-item">
+                <a class="speech-bubble" href="261008-02__Bootstrap__Flex.html" target="_blank">
+                    <span class="episode-tag">第十話</span>
+                    <span>Samu學Flex</span>
+                    <span class="sfx-badge">ビシッ!</span>
+                </a>
+            </li>
 
-    </ul>
+            <li class="manga-item">
+                <a class="speech-bubble" href="261013-01__Bootstrap__Timeline__Flex.html" target="_blank">
+                    <span class="episode-tag">第十一話</span>
+                    <span>Samu學Flex時間軸</span>
+                    <span class="sfx-badge">ゴゴゴ</span>
+                </a>
+            </li>
 
+            <li class="manga-item">
+                <a class="speech-bubble" href="261013-02__Bootstrap__Flex__roller.html" target="_blank">
+                    <span class="episode-tag">第十二話</span>
+                    <span>Samu學Flex捲簾特效</span>
+                    <span class="sfx-badge">クルッ!</span>
+                </a>
+            </li>
 
+            <li class="manga-item">
+                <a class="speech-bubble" href="261015-01__Bootstrap__Forms.html" target="_blank">
+                    <span class="episode-tag">第十三話</span>
+                    <span>Samu學Forms(表單)</span>
+                    <span class="sfx-badge">カキカキ</span>
+                </a>
+            </li>
 
+            <li class="manga-item">
+                <a class="speech-bubble" href="261015-01__Bootstrap__Forms-EX01.html" target="_blank">
+                    <span class="episode-tag">第十四話</span>
+                    <span>Samu學Forms表單排版(JS)</span>
+                    <span class="sfx-badge">キラーン</span>
+                </a>
+            </li>
 
+            <li class="manga-item highlight-resume">
+                <a class="speech-bubble" href="261013-ch7-flex-ex02__Samu.html" target="_blank">
+                    <span class="episode-tag">特別篇</span>
+                    <span>王近江個人履歷表</span>
+                    <span class="sfx-badge">登場!</span>
+                </a>
+            </li>
 
+            <li class="manga-item">
+                <a class="speech-bubble" href="261027-01__Bootstrap__Forms-EX01__Gemini-001.html" target="_blank">
+                    <span class="episode-tag">第十六話</span>
+                    <span>AI輔助生成Forms表單-以巨匠電腦為範例</span>
+                    <span class="sfx-badge">完成!</span>
+                </a>
+            </li>
+        </ul>
 
-
-
+        <footer>
+            <p>© 王近江 學習歷程卷軸 ｜ 浮世繪漫畫特別版</p>
+        </footer>
+    </div>
 
     <script src="js/jquery-4.0.0.js"></script>
-
     <script>
-
+        // 點擊對話框時產生短暫漫畫按壓回饋
+        $(document).ready(function () {
+            $('.speech-bubble').on('mousedown', function () {
+                $(this).css('transform', 'scale(0.96)');
+            }).on('mouseup mouseleave', function () {
+                $(this).css('transform', '');
+            });
+        });
     </script>
-
 
 </body>
 

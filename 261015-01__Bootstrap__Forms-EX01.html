@@ -143,7 +143,6 @@
                     <div class="d-flex justify-content-between">
                         <span class="text-secondary">1 - 完全不會</span>
                         <span class="text-secondary">10 - 非常熟悉</span>
-
                     </div>
                 </div>
 
@@ -151,7 +150,7 @@
             </div>
             <div class="col-12 text-center mt-3">
                 <button class="btn btn-primary" id="ok_btn">確認送出</button>
-                <button class="btn btn-secondary">重新填寫</button>
+                <button class="btn btn-secondary" id="reset_btn">重新填寫</button>
             </div>
         </div><!-- End div class="row p-2" -->
 
@@ -168,6 +167,7 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let flag_username = false; //布林值
         let flag_email = false; //布林值
@@ -180,10 +180,17 @@
         let interest = []; // 感興趣的課程(可複選) checkbox
         let classMode = ''; // 偏好的上課方式(單選) rdaio
         let switchStatus = false; //目前狀態 : 關閉
+        let score = 5; //程式能力自我評估: 5 分(預設)
         $(function () {
             // 即時監聽 #username
             $("#username").on("input", function () {
                 // console.log($("#username").val());
+
+                // LocalStorage即時儲存 不管使用者打甚麼，網頁就是記起來
+                let username = $(this).val();
+                localStorage.setItem("username", username);
+
+
                 console.log("input: " + $(this).val().length);
                 if ($(this).val().length > 1 && $(this).val().length < 9) {
                     // 符合規定
@@ -200,24 +207,6 @@
                 }
             });
 
-            // #email change監聽
-            // $("#email").on("change", function () {
-            //     let email = $(this).val();
-            //     console.log(email.length);
-            //     console.log(email.includes("@"));
-
-            //     if (email.length > 7 && email.length < 16 && email.includes("@")) {
-            //         // 符合規定
-            //         $(this).removeClass("is-invalid");
-            //         $(this).addClass("is-valid");
-            //         flag_email = true;
-            //     } else {
-            //         // 不符合規定
-            //         $(this).removeClass("is-valid");
-            //         $(this).addClass("is-invalid");
-            //         flag_email = false;
-            //     }
-            // });
 
             //#email change 監聽
             $("#email").on("change", function () {
@@ -226,6 +215,9 @@
                 let email = $(this).val();
                 console.log(email.length);
                 console.log(email.includes("@"));
+
+                // LocalStorage即時儲存 不管使用者打甚麼，網頁就是記起來
+                localStorage.setItem("email", email);
 
                 if (email.length > 7 && email.length < 24 && emailRegex.test(email)) {
                     //符合規定
@@ -364,15 +356,38 @@
             // range01 input監聽
             $("#range01").on("input", function () {
                 console.log($(this).val());
-
-
+                score = $(this).val();
+                $("#range_value").text(score);
             });
 
 
 
+            // 網頁重新載入時，取得先前儲存的欄位
+            // 讀取localStorage.username
+            let savedUsername = localStorage.getItem("username");
+            console.log(savedUsername);
+
+
+            if (savedUsername != null) {
+                $("#username").val(savedUsername);
+                // 執行驗證
+                $("#username").trigger("input");
+            }
+
+
+            //讀取localStorage.email
+            let savedEmail = localStorage.getItem("email");
+
+            if (savedEmail != null) {
+                $("#email").val(savedEmail);
+                //執行驗證
+                $("#email").trigger("change");
+            }
+
+
             //監聽 #ok_btn確認送出
             $("#ok_btn").on("click", function () {
-                if (flag_username && flag_email && flag_password && flag_phone && flag_city && flag_interest) {
+                if (flag_username && flag_email && flag_password && flag_phone && flag_city && flag_interest && flag_classMode) {
                     console.log("符合規定!");
 
                     let switch_msg = "";
@@ -389,13 +404,43 @@
                                      <div class="h2">居住地: ${$("#city").val()}</div>
                                      <div class="h2">感興趣的課程: ${interest.join(", ")}</div>
                                      <div class="h2">偏好的上課方式: ${classMode}</div>
-                                     <div class="h2">${switch_msg}</div>`;
+                                     <div class="h2">${switch_msg}</div>
+                                     <div class="h2">程式能力自我評估: ${score} 分</div>`;
                     $("#showmsg").html(strHTML);
+
+                    // 清除localstorage
+                    clearLocalStorage();
                 } else {
                     console.log("不符合規定!");
-                    alert("不符合規定!");
+                    // alert("不符合規定!");
+                    // sweetalert2
+                    Swal.fire({
+                        title: "表單內容錯誤，請修正？",
+                        showDenyButton: false,
+                        showCancelButton: false,
+                        confirmButtonText: "確認",
+                        denyButtonText: `Don't save`,
+                        icon: "error"
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            // 重整畫面
+                            location.href = "261015-01__Bootstrap__Forms-EX01.html";
+                        }
+                    });
                 }
 
+            });
+
+
+
+            // 重新填寫 #reset_btn
+            $("#reset_btn").on("click", function () {
+                // 清除localstorage
+                clearLocalStorage();
+
+                // 重整畫面
+                location.reload();
             });
         });
 
@@ -420,6 +465,11 @@
                 $(this).addClass("is-valid");
                 flag_city = true;
             });
+        }
+
+        function clearLocalStorage() {
+            localStorage.removeItem("username");
+            localStorage.removeItem("email");
         }
     </script>
 </body>
