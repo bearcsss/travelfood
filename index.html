@@ -8,16 +8,23 @@
     <!-- 引入 Google Fonts 日系漢字與襯線字體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Zen+Maru+Gothic:wght@700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/myall.css">
 
     <style>
         :root {
-            --washi-bg: #f4ecd8;        /* 和紙米黃 */
-            --sumi-ink: #1a1a1a;        /* 墨黑 */
-            --vermilion: #c83e2b;       /* 朱紅 */
-            --indigo-blue: #1d3557;     /* 藍染 / 普魯士藍 */
-            --gold-accent: #d4a373;     /* 金泥色 */
+            --washi-bg: #f4ecd8;
+            /* 和紙米黃 */
+            --sumi-ink: #1a1a1a;
+            /* 墨黑 */
+            --vermilion: #c83e2b;
+            /* 朱紅 */
+            --indigo-blue: #1d3557;
+            /* 藍染 / 普魯士藍 */
+            --gold-accent: #d4a373;
+            /* 金泥色 */
         }
 
         * {
@@ -34,7 +41,7 @@
             position: relative;
             overflow-x: hidden;
             /* 浮世繪背景圖（神奈川沖浪裏）搭配和紙漸層遮罩，確保前景文字清晰 */
-            background-image: 
+            background-image:
                 linear-gradient(to bottom, rgba(244, 236, 216, 0.82) 0%, rgba(244, 236, 216, 0.72) 50%, rgba(29, 53, 87, 0.85) 100%),
                 url('https://upload.wikimedia.org/wikipedia/commons/a/a5/Tsunami_by_hokusai_19th_century.jpg');
             background-size: cover;
@@ -106,7 +113,7 @@
             right: -28px;
             bottom: -18px;
             transform: rotate(12deg);
-            box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
             user-select: none;
         }
 
@@ -279,6 +286,7 @@
             background-color: #ffe8cc;
             border-color: var(--sumi-ink);
         }
+
         .highlight-resume .speech-bubble::before {
             border-color: #ffe8cc transparent transparent transparent;
         }
@@ -299,9 +307,11 @@
             body {
                 padding: 2rem 1rem 4rem;
             }
+
             .title-01 {
                 padding: 0.8rem 1.5rem;
             }
+
             .hanko-seal {
                 width: 42px;
                 height: 42px;
@@ -309,6 +319,7 @@
                 right: -12px;
                 bottom: -15px;
             }
+
             .manga-grid {
                 grid-template-columns: 1fr;
                 gap: 2.4rem;
@@ -327,7 +338,7 @@
                 <span class="hanko-seal">近江<br>之印</span>
             </div>
             <br>
-            <p class="subtitle">◆ 浮世繪 × 漫畫分鏡作品集 ◆</p>
+            <p class="subtitle">◆ 浮世繪 × 漫畫風格作品集 ◆</p>
         </header>
 
         <!-- 漫畫對話框連結列表 -->
@@ -459,10 +470,18 @@
                     <span class="sfx-badge">完成!</span>
                 </a>
             </li>
+
+            <li class="manga-item">
+                <a class="speech-bubble" href="261027__SPA__Samu-01.html" target="_blank">
+                    <span class="episode-tag">第十七話</span>
+                    <span>SPA 一頁式網站</span>
+                    <span class="sfx-badge">カキカキ</span>
+                </a>
+            </li>
         </ul>
 
         <footer>
-            <p>© 王近江 學習歷程卷軸 ｜ 浮世繪漫畫特別版</p>
+            <p>© 王近江 學習歷程卷軸 ｜ 浮世繪特別版</p>
         </footer>
     </div>
 
