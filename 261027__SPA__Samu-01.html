@@ -441,7 +441,2784 @@
             margin-bottom: 0.75rem;
             text-transform: uppercase;
         }
+
+        /* =================================================== */
+        /* =================================================== */
+
+
+        /* ===== Section 05：淺色賽博龐克 ===== */
+        #s05 {
+            --s05-blue: #0066ff;
+            --s05-pink: #ff1493;
+            --s05-yellow: #fff200;
+            --s05-ink: #15234b;
+
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 80px 20px;
+            color: var(--s05-ink);
+            background:
+                radial-gradient(ellipse at 5% 10%,
+                    rgba(0, 102, 255, 0.12),
+                    transparent 50%),
+                radial-gradient(ellipse at 95% 90%,
+                    rgba(255, 20, 147, 0.12),
+                    transparent 50%),
+                #f5f8ff;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        #s05,
+        #s05 *,
+        #s05 *::before,
+        #s05 *::after {
+            box-sizing: border-box;
+        }
+
+        /* 淺色科技網格 */
+        #s05::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(0, 102, 255, 0.055) 1px,
+                    transparent 1px),
+                linear-gradient(90deg,
+                    rgba(0, 102, 255, 0.055) 1px,
+                    transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        #s05 .s05-container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        #s05 .s05-heading {
+            margin-bottom: 42px;
+            text-align: center;
+        }
+
+        #s05 .s05-eyebrow {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 6px;
+            color: #074bb4;
+            background: #ffffff;
+            box-shadow: 4px 4px 0 var(--s05-yellow);
+            font: 800 0.78rem Consolas, monospace;
+            letter-spacing: 0.12em;
+        }
+
+        #s05 .s05-title {
+            margin: 24px 0 16px;
+            color: var(--s05-ink);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            line-height: 1.3;
+            text-shadow:
+                2px 2px 0 #ff93ce,
+                -2px -1px 0 #8ebcff;
+        }
+
+        #s05 .s05-subtitle {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #4c5c79;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        /* 桌面三欄 */
+        #s05 .s05-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        /* ===== 卡片與流光外框 ===== */
+        #s05 .s05-card {
+            --s05-accent: #0066ff;
+            --s05-accent-dark: #074bb4;
+            --s05-icon-bg: #e8f1ff;
+            --s05-delay: 0s;
+
+            position: relative;
+            isolation: isolate;
+            display: flex;
+            min-width: 0;
+            padding: 2px;
+            border-radius: 24px;
+            background: linear-gradient(125deg,
+                    var(--s05-blue),
+                    var(--s05-yellow),
+                    var(--s05-pink),
+                    var(--s05-blue));
+            background-size: 300% 300%;
+            animation: s05-border-flow 9s ease-in-out infinite;
+            animation-delay: var(--s05-delay);
+            box-shadow: 0 12px 30px rgba(35, 65, 125, 0.1);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        #s05 .s05-card:nth-child(2) {
+            --s05-accent: #ff1493;
+            --s05-accent-dark: #ae005b;
+            --s05-icon-bg: #ffe8f4;
+            --s05-delay: -4s;
+        }
+
+        #s05 .s05-card:nth-child(3) {
+            --s05-accent: #fff200;
+            --s05-accent-dark: #665300;
+            --s05-icon-bg: #fffbd0;
+            --s05-delay: -8s;
+        }
+
+        #s05 .s05-panel {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+            padding: 28px;
+            border-radius: 22px;
+            background: #ffffff;
+        }
+
+        /* 動畫圖層：不接收滑鼠事件 */
+        #s05 .s05-fluid {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        #s05 .s05-shape {
+            position: absolute;
+            display: block;
+            width: 230px;
+            height: 230px;
+            opacity: 0.28;
+            animation: s05-liquid 15s ease-in-out infinite alternate;
+            animation-delay: var(--s05-delay);
+        }
+
+        /* 藍色流體 */
+        #s05 .s05-shape-blue {
+            top: -90px;
+            right: -90px;
+            border-radius: 35% 65% 60% 40% / 45% 35% 65% 55%;
+            background: linear-gradient(135deg, #0066ff, #00d4ff);
+        }
+
+        /* 粉紅流體 */
+        #s05 .s05-shape-pink {
+            bottom: -100px;
+            left: -95px;
+            border-radius: 65% 35% 35% 65% / 55% 60% 40% 45%;
+            background: linear-gradient(135deg, #ff1493, #ff72d2);
+            animation-name: s05-liquid-reverse;
+            animation-duration: 19s;
+        }
+
+        /* 黃色幾何方塊 */
+        #s05 .s05-shape-yellow {
+            top: 40%;
+            right: -55px;
+            width: 125px;
+            height: 125px;
+            border: 2px solid #e3cb00;
+            border-radius: 24px;
+            opacity: 0.45;
+            background: #fff200;
+            animation: s05-orbit 18s ease-in-out infinite alternate;
+            animation-delay: var(--s05-delay);
+        }
+
+        /* 中央白色遮罩，維持文字可讀性 */
+        #s05 .s05-panel::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.12),
+                    rgba(255, 255, 255, 0.86) 36%,
+                    rgba(255, 255, 255, 0.92) 72%,
+                    rgba(255, 255, 255, 0.2));
+        }
+
+        /* ===== 圖示與文字 ===== */
+        #s05 .s05-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        #s05 .s05-icon {
+            display: grid;
+            place-items: center;
+            width: 64px;
+            height: 64px;
+            border: 2px solid var(--s05-accent);
+            border-radius: 18px;
+            color: var(--s05-accent-dark);
+            background: var(--s05-icon-bg);
+            box-shadow: 5px 5px 0 var(--s05-accent);
+        }
+
+        #s05 .s05-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        #s05 .s05-index {
+            color: var(--s05-accent-dark);
+            font: 900 2.5rem Consolas, monospace;
+            opacity: 0.65;
+        }
+
+        #s05 .s05-number {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--s05-accent-dark);
+            font: 800 0.74rem Consolas, monospace;
+            letter-spacing: 0.05em;
+            overflow-wrap: anywhere;
+        }
+
+        #s05 .s05-card h3 {
+            margin: 0 0 18px;
+            color: var(--s05-ink);
+            font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        #s05 .s05-card p {
+            margin: 0 0 26px;
+            color: #41516d;
+            font-size: 0.98rem;
+            line-height: 1.95;
+            overflow-wrap: anywhere;
+        }
+
+        #s05 .s05-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: auto 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #s05 .s05-tags li {
+            padding: 7px 11px;
+            border: 1px solid var(--s05-accent);
+            border-radius: 6px;
+            color: var(--s05-accent-dark);
+            background: var(--s05-icon-bg);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* ===== 底部信念 ===== */
+        #s05 .s05-footer {
+            position: relative;
+            margin: 38px 0 0;
+            padding: 22px 26px;
+            border: 1px solid rgba(0, 102, 255, 0.18);
+            border-left: 5px solid var(--s05-pink);
+            border-radius: 12px;
+            color: var(--s05-ink);
+            background: #ffffff;
+            box-shadow: 6px 6px 0 rgba(255, 242, 0, 0.65);
+            text-align: center;
+        }
+
+        #s05 .s05-footer p {
+            margin: 0;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-weight: 800;
+            line-height: 1.9;
+        }
+
+        #s05 .s05-footer-mark {
+            color: #bd006b;
+            font-weight: 900;
+        }
+
+        /* ===== 動畫 ===== */
+        @keyframes s05-border-flow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes s05-liquid {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                border-radius: 35% 65% 60% 40% / 45% 35% 65% 55%;
+            }
+
+            50% {
+                transform: translate(-28px, 40px) rotate(45deg) scale(1.1);
+                border-radius: 65% 35% 40% 60% / 60% 55% 45% 40%;
+            }
+
+            100% {
+                transform: translate(12px, 65px) rotate(100deg) scale(0.95);
+                border-radius: 45% 55% 70% 30% / 35% 60% 40% 65%;
+            }
+        }
+
+        @keyframes s05-liquid-reverse {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                border-radius: 65% 35% 35% 65% / 55% 60% 40% 45%;
+            }
+
+            50% {
+                transform: translate(30px, -35px) rotate(-45deg);
+                border-radius: 40% 60% 65% 35% / 40% 35% 65% 60%;
+            }
+
+            100% {
+                transform: translate(5px, -65px) rotate(-90deg);
+                border-radius: 55% 45% 30% 70% / 65% 45% 55% 35%;
+            }
+        }
+
+        @keyframes s05-orbit {
+            from {
+                transform: translate(0, -25px) rotate(15deg);
+            }
+
+            to {
+                transform: translate(-40px, 45px) rotate(100deg);
+            }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            #s05 .s05-card:hover {
+                transform: translateY(-7px);
+                box-shadow:
+                    0 18px 38px rgba(0, 102, 255, 0.15),
+                    0 5px 18px rgba(255, 20, 147, 0.1);
+            }
+        }
+
+        /* 平板兩欄 */
+        @media (max-width: 991px) {
+            #s05 .s05-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* 手機單欄 */
+        @media (max-width: 639px) {
+            #s05 {
+                padding: 56px 16px;
+            }
+
+            #s05 .s05-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 22px;
+            }
+
+            #s05 .s05-panel {
+                padding: 24px;
+            }
+
+            #s05 .s05-footer {
+                padding: 20px;
+            }
+        }
+
+        /* 尊重減少動態效果設定 */
+        @media (prefers-reduced-motion: reduce) {
+
+            #s05 .s05-card,
+            #s05 .s05-shape {
+                animation: none;
+                transition: none;
+            }
+
+            #s05 .s05-card:hover {
+                transform: none;
+            }
+        }
+
+        /* =================================================== */
+        /* =================================================== */
+
+
+        /* ===== section 6：賽博龐克關於我 ===== */
+        #s06 {
+            --s06-blue: #1685ff;
+            --s06-yellow: #fff200;
+            --s06-pink: #ff1493;
+            --s06-text: #f5f7ff;
+
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 80px 20px;
+            color: var(--s06-text);
+            background:
+                radial-gradient(ellipse at 10% 20%,
+                    rgba(22, 133, 255, 0.24),
+                    transparent 55%),
+                radial-gradient(ellipse at 95% 85%,
+                    rgba(255, 20, 147, 0.2),
+                    transparent 55%),
+                #080b20;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        #s06,
+        #s06 *,
+        #s06 *::before,
+        #s06 *::after {
+            box-sizing: border-box;
+        }
+
+        /* 科技網格背景 */
+        #s06::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(22, 133, 255, 0.08) 1px,
+                    transparent 1px),
+                linear-gradient(90deg,
+                    rgba(22, 133, 255, 0.08) 1px,
+                    transparent 1px);
+            background-size: 36px 36px;
+        }
+
+        #s06 .s06-container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        #s06 .s06-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+            align-items: stretch;
+            gap: 40px;
+        }
+
+        /* ===== 左側視覺區 ===== */
+        #s06 .s06-visual {
+            min-width: 0;
+            display: flex;
+            margin: 0;
+            padding: 3px;
+            border-radius: 24px;
+            background: linear-gradient(135deg,
+                    var(--s06-blue),
+                    var(--s06-pink),
+                    var(--s06-yellow),
+                    var(--s06-blue));
+            background-size: 300% 300%;
+            animation: s06-flow 8s ease-in-out infinite;
+            box-shadow:
+                0 0 26px rgba(22, 133, 255, 0.2),
+                0 18px 45px rgba(0, 0, 0, 0.35);
+        }
+
+        #s06 .s06-image-frame {
+            position: relative;
+            isolation: isolate;
+            width: 100%;
+            min-height: 540px;
+            overflow: hidden;
+            border-radius: 21px;
+            background: #101a35;
+        }
+
+        #s06 .s06-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            filter: saturate(1.15) contrast(1.05);
+            transition: transform 0.7s ease;
+        }
+
+        #s06 .s06-visual:hover .s06-image {
+            transform: scale(1.04);
+        }
+
+        /* 圖片上的色彩與暗部遮罩 */
+        #s06 .s06-image-frame::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background:
+                linear-gradient(180deg,
+                    rgba(8, 11, 32, 0.35),
+                    transparent 40%,
+                    rgba(8, 11, 32, 0.94)),
+                linear-gradient(135deg,
+                    rgba(22, 133, 255, 0.22),
+                    rgba(255, 20, 147, 0.18));
+        }
+
+        /* 緩慢移動的掃描線 */
+        #s06 .s06-scan {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        #s06 .s06-scan::after {
+            content: "";
+            position: absolute;
+            top: -25%;
+            left: 0;
+            width: 100%;
+            height: 25%;
+            background: linear-gradient(transparent,
+                    rgba(22, 133, 255, 0.12),
+                    rgba(120, 214, 255, 0.4));
+            border-bottom: 1px solid rgba(160, 230, 255, 0.7);
+            animation: s06-scan 7s linear infinite;
+        }
+
+        #s06 .s06-image-label {
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            z-index: 3;
+            padding: 9px 12px;
+            border: 1px solid var(--s06-blue);
+            border-radius: 6px;
+            color: var(--s06-yellow);
+            background: rgba(8, 11, 32, 0.88);
+            font: 700 0.78rem Consolas, monospace;
+            letter-spacing: 0.12em;
+        }
+
+        #s06 .s06-image-caption {
+            position: absolute;
+            right: 26px;
+            bottom: 28px;
+            left: 26px;
+            z-index: 3;
+        }
+
+        #s06 .s06-code {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--s06-yellow);
+            font: 900 clamp(2.5rem, 5vw, 4rem) Consolas, monospace;
+            text-shadow: 3px 3px 0 #bc006b;
+        }
+
+        #s06 .s06-image-caption p {
+            margin: 0;
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 800;
+            line-height: 1.6;
+            text-shadow: 0 2px 8px #080b20;
+        }
+
+        /* ===== 右側文字區 ===== */
+        #s06 .s06-content {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 12px 0;
+        }
+
+        #s06 .s06-eyebrow {
+            margin: 0 0 12px;
+            color: var(--s06-yellow);
+            font: 700 0.8rem Consolas, monospace;
+            letter-spacing: 0.16em;
+        }
+
+        #s06 .s06-title {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 12px 18px;
+            margin: 0 0 24px;
+            color: var(--s06-text);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            line-height: 1.3;
+            text-shadow:
+                3px 3px 0 #c60070,
+                -3px -2px 0 #075bc7;
+        }
+
+        #s06 .s06-en {
+            color: #80c8ff;
+            font: 700 0.95rem Consolas, monospace;
+            letter-spacing: 0.15em;
+            text-shadow: none;
+        }
+
+        #s06 .s06-intro {
+            margin: 0 0 18px;
+            color: #c7d2ee;
+            font-size: 1rem;
+            line-height: 1.95;
+            overflow-wrap: anywhere;
+        }
+
+        #s06 .s06-intro strong {
+            color: #ff8dcc;
+            font-weight: 700;
+        }
+
+        /* 技術標籤 */
+        #s06 .s06-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin: 6px 0 28px;
+            padding: 0;
+            list-style: none;
+        }
+
+        #s06 .s06-skills li {
+            padding: 7px 11px;
+            border: 1px solid #435888;
+            border-radius: 6px;
+            color: #a8d9ff;
+            background: #152345;
+            font: 700 0.82rem Consolas, monospace;
+        }
+
+        #s06 .s06-skills li:nth-child(3n + 2) {
+            border-color: #784266;
+            color: #ff9bd3;
+            background: #2b1530;
+        }
+
+        #s06 .s06-skills li:nth-child(3n) {
+            border-color: #706a28;
+            color: var(--s06-yellow);
+            background: #26250f;
+        }
+
+        /* ===== 按鈕 ===== */
+        #s06 .s06-btn {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+            min-height: 52px;
+            padding: 14px 20px;
+            border: 2px solid var(--s06-yellow);
+            border-radius: 8px;
+            color: var(--s06-yellow);
+            background: rgba(255, 242, 0, 0.04);
+            font-size: 1rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition:
+                color 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        #s06 .s06-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -60%;
+            z-index: -1;
+            width: 40%;
+            pointer-events: none;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.4),
+                    transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s ease;
+        }
+
+        #s06 .s06-btn:hover {
+            color: #080b20;
+            background: var(--s06-yellow);
+            box-shadow: 0 0 24px rgba(255, 242, 0, 0.3);
+        }
+
+        #s06 .s06-btn:hover::before {
+            left: 120%;
+        }
+
+        #s06 .s06-arrow {
+            transition: transform 0.25s ease;
+        }
+
+        #s06 .s06-btn:hover .s06-arrow {
+            transform: translateX(5px);
+        }
+
+        #s06 .s06-btn:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 5px;
+        }
+
+        @keyframes s06-flow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes s06-scan {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(500%);
+            }
+        }
+
+        /* 平板與手機改成上下排列 */
+        @media (max-width: 767px) {
+            #s06 {
+                padding: 56px 16px;
+            }
+
+            #s06 .s06-layout {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 28px;
+            }
+
+            #s06 .s06-image-frame {
+                min-height: 320px;
+            }
+
+            #s06 .s06-content {
+                padding: 0;
+            }
+        }
+
+        /* 尊重使用者的減少動態效果設定 */
+        @media (prefers-reduced-motion: reduce) {
+
+            #s06 .s06-visual,
+            #s06 .s06-scan::after {
+                animation: none;
+            }
+
+            #s06 .s06-scan {
+                display: none;
+            }
+
+            #s06 .s06-image,
+            #s06 .s06-btn,
+            #s06 .s06-btn::before,
+            #s06 .s06-arrow {
+                transition: none;
+            }
+
+            #s06 .s06-visual:hover .s06-image,
+            #s06 .s06-btn:hover .s06-arrow {
+                transform: none;
+            }
+        }
+
+
+        /* =================================================== */
+        /* =================================================== */
+
+
+        /* ===== section 7：賽博龐克作品集 ===== */
+        #s07 {
+            --cyber-blue: #1685ff;
+            --cyber-yellow: #fff200;
+            --cyber-pink: #ff1493;
+            --cyber-text: #f5f7ff;
+
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 80px 20px;
+            color: var(--cyber-text);
+            background:
+                radial-gradient(ellipse at 0% 10%,
+                    rgba(22, 133, 255, 0.25),
+                    transparent 55%),
+                radial-gradient(ellipse at 100% 90%,
+                    rgba(255, 20, 147, 0.22),
+                    transparent 55%),
+                #080b20;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        #s07,
+        #s07 *,
+        #s07 *::before,
+        #s07 *::after {
+            box-sizing: border-box;
+        }
+
+        /* 背景科技網格 */
+        #s07::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(22, 133, 255, 0.09) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(22, 133, 255, 0.09) 1px, transparent 1px);
+            background-size: 36px 36px;
+        }
+
+        #s07 .s07-container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        #s07 .s07-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        #s07 .s07-label {
+            margin: 0 0 12px;
+            color: var(--cyber-yellow);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+        }
+
+        #s07 .s07-title {
+            margin: 0 0 18px;
+            color: var(--cyber-text);
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 900;
+            line-height: 1.25;
+            text-shadow:
+                3px 3px 0 #c60070,
+                -3px -2px 0 #075bc7;
+        }
+
+        #s07 .s07-subtitle {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #c7d2ee;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        #s07 .s07-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        /* 動態漸層外框：由內層深色面板遮住中央 */
+        #s07 .s07-card {
+            min-width: 0;
+            display: flex;
+            padding: 3px;
+            border-radius: 22px;
+            background: linear-gradient(120deg,
+                    var(--cyber-blue),
+                    var(--cyber-pink),
+                    var(--cyber-yellow),
+                    var(--cyber-blue),
+                    var(--cyber-pink));
+            background-size: 350% 350%;
+            animation: s07-flow 7s ease-in-out infinite;
+            box-shadow:
+                0 0 18px rgba(22, 133, 255, 0.18),
+                0 12px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #s07 .s07-card:nth-child(2) {
+            animation-delay: -2s;
+        }
+
+        #s07 .s07-card:nth-child(3) {
+            animation-delay: -4s;
+        }
+
+        #s07 .s07-card:nth-child(4) {
+            animation-delay: -6s;
+        }
+
+        #s07 .s07-card:hover,
+        #s07 .s07-card:focus-within {
+            transform: translateY(-6px);
+            box-shadow:
+                0 0 24px rgba(255, 20, 147, 0.3),
+                0 16px 38px rgba(22, 133, 255, 0.2);
+        }
+
+        #s07 .s07-panel {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+            padding: 28px;
+            border-radius: 19px;
+            background:
+                radial-gradient(circle at top right,
+                    rgba(22, 133, 255, 0.18),
+                    transparent 65%),
+                #0d122b;
+        }
+
+        #s07 .s07-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        #s07 .s07-number {
+            color: var(--cyber-yellow);
+            font-family: Consolas, monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        #s07 .s07-symbol {
+            display: grid;
+            place-items: center;
+            width: 56px;
+            height: 48px;
+            border: 1px solid var(--cyber-blue);
+            border-radius: 10px;
+            color: #80c8ff;
+            background: rgba(22, 133, 255, 0.12);
+            box-shadow: inset 0 0 15px rgba(22, 133, 255, 0.2);
+            font: 900 1.2rem Consolas, monospace;
+        }
+
+        #s07 .s07-card-title {
+            margin: 0 0 16px;
+            color: var(--cyber-text);
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        #s07 .s07-tech {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        #s07 .s07-tech-label {
+            color: #c7d2ee;
+            font-size: 0.85rem;
+        }
+
+        #s07 .s07-tag {
+            padding: 4px 9px;
+            border: 1px solid #435888;
+            border-radius: 5px;
+            color: #a8d9ff;
+            background: #152345;
+            font: 700 0.8rem Consolas, monospace;
+        }
+
+        #s07 .s07-description {
+            margin: 0 0 26px;
+            color: #c7d2ee;
+            font-size: 0.98rem;
+            line-height: 1.9;
+            overflow-wrap: anywhere;
+        }
+
+        #s07 .s07-description strong {
+            color: #ff8dcc;
+        }
+
+        #s07 .s07-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            min-height: 48px;
+            margin-top: auto;
+            padding: 12px 18px;
+            border: 2px solid var(--cyber-yellow);
+            border-radius: 8px;
+            color: var(--cyber-yellow);
+            background: rgba(255, 242, 0, 0.04);
+            font-weight: 800;
+            text-decoration: none;
+            transition:
+                color 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        #s07 .s07-link:hover {
+            color: #080b20;
+            background: var(--cyber-yellow);
+            box-shadow: 0 0 22px rgba(255, 242, 0, 0.35);
+        }
+
+        #s07 .s07-link:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 5px;
+        }
+
+        @keyframes s07-flow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* 手機改為單欄 */
+        @media (max-width: 767px) {
+            #s07 {
+                padding: 56px 16px;
+            }
+
+            #s07 .s07-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 22px;
+            }
+
+            #s07 .s07-panel {
+                padding: 22px;
+            }
+        }
+
+        /* 尊重使用者的減少動態效果設定 */
+        @media (prefers-reduced-motion: reduce) {
+            #s07 .s07-card {
+                animation: none;
+                transition: none;
+            }
+
+            #s07 .s07-card:hover,
+            #s07 .s07-card:focus-within {
+                transform: none;
+            }
+
+            #s07 .s07-link {
+                transition: none;
+            }
+        }
+
+
+
+        /* =================================================== */
+        /* =================================================== */
+
+
+
+        /* ===== Section 08：淺色賽博龐克學經歷 ===== */
+        #s08 {
+            --s08-blue: #0066ff;
+            --s08-pink: #ff1493;
+            --s08-yellow: #fff200;
+            --s08-ink: #15234b;
+
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 80px 20px;
+            color: var(--s08-ink);
+            background: #f5f8ff;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        #s08,
+        #s08 *,
+        #s08 *::before,
+        #s08 *::after {
+            box-sizing: border-box;
+        }
+
+        #s08 .s08-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* ===== 整區流體幾何背景 ===== */
+        #s08 .s08-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        /* 科技網格 */
+        #s08 .s08-background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 102, 255, 0.06) 1px,
+                    transparent 1px),
+                linear-gradient(90deg,
+                    rgba(0, 102, 255, 0.06) 1px,
+                    transparent 1px);
+            background-size: 36px 36px;
+        }
+
+        #s08 .s08-blob {
+            position: absolute;
+            display: block;
+            width: clamp(280px, 45vw, 650px);
+            aspect-ratio: 1;
+            opacity: 0.23;
+            border-radius: 38% 62% 65% 35% / 45% 35% 65% 55%;
+            animation: s08-liquid 22s ease-in-out infinite alternate;
+        }
+
+        #s08 .s08-blob-blue {
+            top: -220px;
+            left: -180px;
+            background: linear-gradient(135deg, #0066ff, #00d9ff);
+        }
+
+        #s08 .s08-blob-pink {
+            right: -200px;
+            bottom: -220px;
+            background: linear-gradient(135deg, #ff1493, #ff8bd8);
+            animation-duration: 27s;
+            animation-delay: -9s;
+            animation-direction: alternate-reverse;
+        }
+
+        #s08 .s08-blob-yellow {
+            top: 30%;
+            left: 34%;
+            width: clamp(200px, 28vw, 380px);
+            opacity: 0.3;
+            background: linear-gradient(135deg, #fff200, #ffda57);
+            animation-duration: 25s;
+            animation-delay: -15s;
+        }
+
+        #s08 .s08-geometry {
+            position: absolute;
+            display: block;
+            width: 160px;
+            aspect-ratio: 1;
+            border: 2px solid rgba(0, 102, 255, 0.25);
+            border-radius: 28px;
+            animation: s08-geometry-drift 24s ease-in-out infinite alternate;
+        }
+
+        #s08 .s08-geometry-one {
+            top: 12%;
+            right: 8%;
+        }
+
+        #s08 .s08-geometry-two {
+            bottom: 8%;
+            left: 7%;
+            width: 110px;
+            border-color: rgba(255, 20, 147, 0.25);
+            animation-delay: -12s;
+        }
+
+        /* ===== 標題 ===== */
+        #s08 .s08-header {
+            margin-bottom: 38px;
+            text-align: center;
+        }
+
+        #s08 .s08-eyebrow {
+            display: inline-block;
+            padding: 8px 14px;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 6px;
+            color: #074bb4;
+            background: #ffffff;
+            box-shadow: 4px 4px 0 var(--s08-yellow);
+            font: 800 0.78rem Consolas, monospace;
+            letter-spacing: 0.1em;
+        }
+
+        #s08 .s08-title {
+            margin: 24px 0 14px;
+            color: var(--s08-ink);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            line-height: 1.3;
+            text-shadow:
+                2px 2px 0 #ff93ce,
+                -2px -1px 0 #8ebcff;
+        }
+
+        #s08 .s08-subtitle {
+            margin: 0;
+            color: #4c5c79;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        /* ===== 左資料、右圖片 ===== */
+        #s08 .s08-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+            align-items: stretch;
+            gap: 28px;
+        }
+
+        #s08 .s08-details {
+            min-width: 0;
+            padding: 12px 28px;
+            border: 1px solid rgba(0, 102, 255, 0.18);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: 0 14px 36px rgba(35, 65, 125, 0.08);
+        }
+
+        #s08 .s08-list {
+            margin: 0;
+        }
+
+        #s08 .s08-entry {
+            display: grid;
+            grid-template-columns: 116px minmax(0, 1fr);
+            gap: 18px;
+            padding: 23px 0;
+        }
+
+        #s08 .s08-entry+.s08-entry {
+            border-top: 1px solid #e1e8f5;
+        }
+
+        #s08 .s08-entry dt {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin: 0;
+            color: #074bb4;
+            font-size: 0.95rem;
+            font-weight: 800;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+        }
+
+        /* 像素標記 */
+        #s08 .s08-entry dt::before {
+            content: "";
+            flex: 0 0 8px;
+            width: 8px;
+            height: 8px;
+            margin-top: 9px;
+            background: var(--s08-blue);
+            box-shadow: 3px 3px 0 #b8d5ff;
+        }
+
+        #s08 .s08-entry:nth-child(even) dt {
+            color: #ae005b;
+        }
+
+        #s08 .s08-entry:nth-child(even) dt::before {
+            background: var(--s08-pink);
+            box-shadow: 3px 3px 0 #ffd1eb;
+        }
+
+        #s08 .s08-entry dd {
+            min-width: 0;
+            margin: 0;
+            color: #41516d;
+            font-size: 0.95rem;
+            line-height: 1.85;
+            overflow-wrap: anywhere;
+        }
+
+        #s08 .s08-entry p {
+            margin: 0;
+        }
+
+        #s08 .s08-entry p+p {
+            margin-top: 8px;
+        }
+
+        #s08 .s08-entry strong {
+            color: var(--s08-ink);
+            font-weight: 800;
+        }
+
+        #s08 .s08-education {
+            margin: 0;
+            padding-left: 1.3em;
+        }
+
+        #s08 .s08-education li+li {
+            margin-top: 8px;
+        }
+
+        #s08 .s08-education li::marker {
+            color: #0756c4;
+            font-weight: 800;
+        }
+
+        #s08 .s08-experience {
+            display: inline-block;
+            margin-bottom: 8px;
+            padding: 4px 11px;
+            border: 1px solid #e1cf00;
+            border-radius: 6px;
+            color: #544900;
+            background: #fffbd0;
+            font-weight: 800;
+        }
+
+        #s08 .s08-period {
+            display: block;
+            margin-bottom: 7px;
+            color: #596781;
+            font-size: 0.83rem;
+        }
+
+        /* ===== 右側圖片：動態流光外框 ===== */
+        #s08 .s08-visual {
+            min-width: 0;
+            display: flex;
+            margin: 0;
+            padding: 3px;
+            border-radius: 24px;
+            background: linear-gradient(135deg,
+                    var(--s08-blue),
+                    var(--s08-pink),
+                    var(--s08-yellow),
+                    var(--s08-blue));
+            background-size: 300% 300%;
+            animation: s08-border-flow 9s ease-in-out infinite;
+            box-shadow: 0 14px 36px rgba(0, 102, 255, 0.14);
+        }
+
+        #s08 .s08-image-frame {
+            position: relative;
+            isolation: isolate;
+            width: 100%;
+            min-height: 480px;
+            overflow: hidden;
+            border-radius: 21px;
+            background: #e8efff;
+        }
+
+        #s08 .s08-image {
+            position: absolute;
+            inset: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.7s ease;
+        }
+
+        /* 底部遮罩讓說明文字清楚 */
+        #s08 .s08-image-frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(180deg,
+                    rgba(0, 102, 255, 0.08),
+                    transparent 45%,
+                    rgba(8, 18, 48, 0.9));
+        }
+
+        #s08 .s08-image-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+            padding: 9px 12px;
+            border: 1px solid rgba(0, 102, 255, 0.25);
+            border-radius: 6px;
+            color: #074bb4;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 4px 4px 0 var(--s08-yellow);
+            font: 800 0.76rem Consolas, monospace;
+            letter-spacing: 0.08em;
+        }
+
+        #s08 .s08-caption {
+            position: absolute;
+            right: 26px;
+            bottom: 28px;
+            left: 26px;
+            z-index: 2;
+            color: #ffffff;
+        }
+
+        #s08 .s08-caption-code {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--s08-yellow);
+            font: 900 2.5rem Consolas, monospace;
+            text-shadow: 3px 3px 0 #bd006b;
+        }
+
+        #s08 .s08-caption p {
+            margin: 0;
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.6;
+        }
+
+        #s08 .s08-caption small {
+            display: block;
+            margin-top: 10px;
+            color: #dae8ff;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        /* ===== 動畫：流體風格視覺效果 ===== */
+        @keyframes s08-liquid {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                border-radius: 38% 62% 65% 35% / 45% 35% 65% 55%;
+            }
+
+            50% {
+                transform: translate(45px, 35px) rotate(45deg) scale(1.08);
+                border-radius: 65% 35% 40% 60% / 55% 65% 35% 45%;
+            }
+
+            100% {
+                transform: translate(-20px, 65px) rotate(90deg) scale(0.95);
+                border-radius: 45% 55% 30% 70% / 65% 40% 60% 35%;
+            }
+        }
+
+        @keyframes s08-geometry-drift {
+            from {
+                transform: translate(0, 0) rotate(15deg);
+            }
+
+            to {
+                transform: translate(25px, -35px) rotate(100deg);
+            }
+        }
+
+        @keyframes s08-border-flow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            #s08 .s08-visual:hover .s08-image {
+                transform: scale(1.04);
+            }
+        }
+
+        /* 平板與手機：資料在上、圖片在下 */
+        @media (max-width: 767px) {
+            #s08 {
+                padding: 56px 16px;
+            }
+
+            #s08 .s08-layout {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 24px;
+            }
+
+            #s08 .s08-details {
+                padding: 8px 22px;
+            }
+
+            #s08 .s08-image-frame {
+                min-height: 360px;
+            }
+        }
+
+        /* 小螢幕：標籤與內容上下排列 */
+        @media (max-width: 479px) {
+            #s08 .s08-entry {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 10px;
+                padding: 20px 0;
+            }
+
+            #s08 .s08-image-frame {
+                min-height: 320px;
+            }
+        }
+
+        /* 尊重使用者的減少動態效果設定 */
+        @media (prefers-reduced-motion: reduce) {
+
+            #s08 .s08-blob,
+            #s08 .s08-geometry,
+            #s08 .s08-visual {
+                animation: none;
+            }
+
+            #s08 .s08-image {
+                transition: none;
+            }
+
+            #s08 .s08-visual:hover .s08-image {
+                transform: none;
+            }
+        }
+
+
+        /* =================================================== */
+        /* =================================================== */
+
+
+
+
+        /* ===== Section 09：霓虹聯絡區 ===== */
+        #s09 {
+            --s09-blue: #1685ff;
+            --s09-pink: #ff1493;
+            --s09-yellow: #fff200;
+            --s09-text: #f5f7ff;
+
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 80px 20px;
+            color: var(--s09-text);
+            background: #080b20;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        #s09,
+        #s09 *,
+        #s09 *::before,
+        #s09 *::after {
+            box-sizing: border-box;
+        }
+
+        #s09 .s09-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* ===== 全區動態背景 ===== */
+        #s09 .s09-background {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        #s09 .s09-background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(90, 155, 255, 0.08) 1px,
+                    transparent 1px),
+                linear-gradient(90deg,
+                    rgba(90, 155, 255, 0.08) 1px,
+                    transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* 流體風格動畫，非實際流體物理模擬 */
+        #s09 .s09-blob {
+            position: absolute;
+            display: block;
+            width: clamp(260px, 48vw, 650px);
+            aspect-ratio: 1;
+            opacity: 0.3;
+            border-radius: 35% 65% 60% 40% / 45% 35% 65% 55%;
+            animation: s09-morph 6s ease-in-out infinite alternate;
+        }
+
+        #s09 .s09-blob-blue {
+            top: -180px;
+            left: -180px;
+            background: linear-gradient(135deg, #0066ff, #00d9ff);
+        }
+
+        #s09 .s09-blob-pink {
+            right: -160px;
+            bottom: -190px;
+            background: linear-gradient(135deg, #ff1493, #a900ff);
+            animation-duration: 7s;
+            animation-delay: -3s;
+            animation-direction: alternate-reverse;
+        }
+
+        #s09 .s09-blob-yellow {
+            top: 30%;
+            left: 36%;
+            width: clamp(180px, 28vw, 360px);
+            opacity: 0.16;
+            background: linear-gradient(135deg, #fff200, #ff9d00);
+            animation-duration: 5s;
+            animation-delay: -2s;
+        }
+
+        #s09 .s09-geometry {
+            position: absolute;
+            display: block;
+            width: 170px;
+            aspect-ratio: 1;
+            border: 2px solid rgba(75, 172, 255, 0.6);
+            border-radius: 25%;
+            animation: s09-orbit 8s linear infinite;
+        }
+
+        #s09 .s09-geometry-one {
+            top: 10%;
+            right: 10%;
+        }
+
+        #s09 .s09-geometry-two {
+            bottom: 9%;
+            left: 6%;
+            width: 110px;
+            border-color: rgba(255, 242, 0, 0.55);
+            animation-duration: 6s;
+            animation-direction: reverse;
+        }
+
+        #s09 .s09-geometry-three {
+            top: 48%;
+            left: 48%;
+            width: 90px;
+            border-color: rgba(255, 20, 147, 0.6);
+            animation-duration: 5s;
+            animation-delay: -2s;
+        }
+
+        /* ===== 標題 ===== */
+        #s09 .s09-header {
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        #s09 .s09-eyebrow {
+            margin: 0 0 14px;
+            color: var(--s09-yellow);
+            font: 800 0.8rem Consolas, monospace;
+            letter-spacing: 0.15em;
+        }
+
+        #s09 .s09-title {
+            margin: 0 0 16px;
+            color: var(--s09-text);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            line-height: 1.3;
+            text-shadow:
+                3px 3px 0 #c60070,
+                -3px -2px 0 #075bc7;
+        }
+
+        #s09 .s09-subtitle {
+            margin: 0;
+            color: #c7d2ee;
+            line-height: 1.9;
+        }
+
+        #s09 .s09-motion {
+            margin-top: 18px;
+            padding: 8px 14px;
+            border: 1px solid #667ca7;
+            border-radius: 20px;
+            color: #dfebff;
+            background: #111b35;
+            font: inherit;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        #s09 .s09-motion[hidden] {
+            display: none;
+        }
+
+        /* ===== 雙欄面板 ===== */
+        #s09 .s09-layout {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        #s09 .s09-shell {
+            display: flex;
+            min-width: 0;
+            padding: 2px;
+            border-radius: 24px;
+            background: linear-gradient(125deg,
+                    var(--s09-blue),
+                    var(--s09-pink),
+                    var(--s09-yellow),
+                    var(--s09-blue));
+            background-size: 300% 300%;
+            animation: s09-border 4s ease-in-out infinite;
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        #s09 .s09-shell:nth-child(2) {
+            animation-delay: -2s;
+        }
+
+        #s09 .s09-panel {
+            min-width: 0;
+            width: 100%;
+            padding: 28px;
+            border-radius: 22px;
+            background: #0d142b;
+        }
+
+        #s09 .s09-panel-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 12px;
+            color: var(--s09-text);
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        #s09 .s09-panel-title::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            background: var(--s09-yellow);
+            box-shadow: 4px 4px 0 var(--s09-pink);
+        }
+
+        #s09 .s09-note {
+            margin: 0 0 24px;
+            color: #b9c9e6;
+            font-size: 0.86rem;
+            line-height: 1.8;
+        }
+
+        /* ===== 表單 ===== */
+        #s09 .s09-field {
+            margin-bottom: 18px;
+        }
+
+        #s09 .s09-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #dfebff;
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        #s09 .s09-required {
+            color: #ff8dcc;
+        }
+
+        #s09 .s09-control {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            border: 1px solid #53678d;
+            border-radius: 9px;
+            color: #f5f7ff;
+            background: #101d38;
+            font: inherit;
+            font-size: 1rem;
+            line-height: 1.5;
+            color-scheme: dark;
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        #s09 .s09-control::placeholder {
+            color: #9daecb;
+            opacity: 1;
+        }
+
+        #s09 .s09-control:focus {
+            border-color: #70b8ff;
+            outline: 2px solid #70b8ff;
+            outline-offset: 2px;
+            box-shadow: 0 0 18px rgba(22, 133, 255, 0.2);
+        }
+
+        #s09 textarea.s09-control {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        #s09 .s09-actions {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        #s09 .s09-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            min-height: 48px;
+            padding: 11px 22px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        #s09 .s09-reset {
+            border-color: #697da3;
+            color: #e3ecff;
+            background: #17233e;
+        }
+
+        #s09 .s09-submit {
+            border-color: var(--s09-yellow);
+            color: #10152b;
+            background: var(--s09-yellow);
+            box-shadow: 4px 4px 0 #bc006b;
+        }
+
+        #s09 .s09-submit:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        #s09 .s09-button:focus-visible,
+        #s09 .s09-motion:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 5px;
+        }
+
+        #s09 .s09-status {
+            margin: 18px 0 0;
+            padding: 12px 14px;
+            border-left: 3px solid var(--s09-yellow);
+            border-radius: 4px;
+            color: #fff6b0;
+            background: #252615;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        #s09 .s09-status:empty {
+            display: none;
+        }
+
+        /* ===== 地圖 ===== */
+        #s09 .s09-map-panel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #s09 .s09-map-frame {
+            flex: 1;
+            min-height: 400px;
+            overflow: hidden;
+            border: 1px solid #53678d;
+            border-radius: 14px;
+            background: #182746;
+        }
+
+        #s09 .s09-map {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: 0;
+        }
+
+        #s09 .s09-map-caption {
+            margin: 18px 0 0;
+            color: #aac5ee;
+            font: 700 0.76rem Consolas, monospace;
+            line-height: 1.8;
+            letter-spacing: 0.08em;
+        }
+
+        /* ===== 較快、多階段的連續動畫 ===== */
+        @keyframes s09-morph {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                border-radius: 35% 65% 60% 40% / 45% 35% 65% 55%;
+            }
+
+            33% {
+                transform: translate(55px, 30px) rotate(35deg) scale(1.12);
+                border-radius: 65% 35% 35% 65% / 60% 55% 45% 40%;
+            }
+
+            66% {
+                transform: translate(-25px, 70px) rotate(80deg) scale(0.93);
+                border-radius: 40% 60% 75% 25% / 35% 65% 35% 65%;
+            }
+
+            100% {
+                transform: translate(30px, -20px) rotate(140deg) scale(1.06);
+                border-radius: 55% 45% 30% 70% / 65% 30% 70% 35%;
+            }
+        }
+
+        @keyframes s09-orbit {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                border-radius: 25%;
+            }
+
+            50% {
+                transform: translate(30px, -40px) rotate(180deg);
+                border-radius: 45%;
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+                border-radius: 25%;
+            }
+        }
+
+        @keyframes s09-border {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* 使用者可暫停動畫 */
+        #s09.s09-paused .s09-blob,
+        #s09.s09-paused .s09-geometry,
+        #s09.s09-paused .s09-shell {
+            animation-play-state: paused;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            #s09 .s09-button:not(:disabled):hover {
+                transform: translateY(-2px);
+            }
+
+            #s09 .s09-submit:not(:disabled):hover {
+                box-shadow:
+                    4px 6px 0 #bc006b,
+                    0 0 22px rgba(255, 242, 0, 0.25);
+            }
+
+            #s09 .s09-reset:hover,
+            #s09 .s09-motion:hover {
+                background: #243657;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #s09 {
+                padding: 56px 16px;
+            }
+
+            #s09 .s09-layout {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 24px;
+            }
+
+            #s09 .s09-panel {
+                padding: 22px;
+            }
+
+            #s09 .s09-map-frame,
+            #s09 .s09-map {
+                min-height: 340px;
+            }
+        }
+
+        @media (max-width: 399px) {
+            #s09 .s09-actions .s09-button {
+                flex: 1;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            #s09 .s09-blob,
+            #s09 .s09-geometry,
+            #s09 .s09-shell {
+                animation: none;
+            }
+
+            #s09 .s09-control,
+            #s09 .s09-button {
+                transition: none;
+            }
+
+            #s09 .s09-button:not(:disabled):hover {
+                transform: none;
+            }
+
+            #s09 .s09-motion {
+                display: none;
+            }
+        }
+
+
+        /* =================================================== */
+        /* =================================================== */
+
+
+
+        /* ===== Section 10：未來展望 ===== */
+        #s10 {
+            --s10-blue: #1685ff;
+            --s10-yellow: #fff200;
+            --s10-pink: #ff1493;
+
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 80px 20px;
+            color: #f5f7ff;
+            background-color: #071b48;
+            animation: s10-color-cycle 24s ease-in-out infinite;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        #s10,
+        #s10 *,
+        #s10 *::before,
+        #s10 *::after {
+            box-sizing: border-box;
+        }
+
+        #s10 .s10-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* ===== 整區背景動畫 ===== */
+        #s10 .s10-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        #s10 .s10-background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(120, 145, 200, 0.16) 1px,
+                    transparent 1px),
+                linear-gradient(90deg,
+                    rgba(120, 145, 200, 0.16) 1px,
+                    transparent 1px);
+            background-size: 42px 42px;
+        }
+
+        /* 流體風格的幾何變形 */
+        #s10 .s10-blob {
+            position: absolute;
+            display: block;
+            width: clamp(280px, 48vw, 680px);
+            aspect-ratio: 1;
+            opacity: 0.38;
+            border-radius: 35% 65% 60% 40% / 45% 35% 65% 55%;
+            animation: s10-liquid 10s ease-in-out infinite alternate;
+        }
+
+        #s10 .s10-blob-blue {
+            top: -180px;
+            left: -160px;
+            background: linear-gradient(135deg, #0066ff, #00d9ff);
+        }
+
+        #s10 .s10-blob-yellow {
+            top: 30%;
+            left: 35%;
+            width: clamp(220px, 32vw, 440px);
+            background: linear-gradient(135deg, #fff200, #ffba00);
+            animation-duration: 12s;
+            animation-delay: -5s;
+        }
+
+        #s10 .s10-blob-pink {
+            right: -180px;
+            bottom: -200px;
+            background: linear-gradient(135deg, #ff1493, #b400ff);
+            animation-duration: 14s;
+            animation-delay: -8s;
+            animation-direction: alternate-reverse;
+        }
+
+        #s10 .s10-ring {
+            position: absolute;
+            display: block;
+            width: 180px;
+            aspect-ratio: 1;
+            border: 3px solid rgba(22, 133, 255, 0.65);
+            border-radius: 28%;
+            animation: s10-orbit 14s linear infinite;
+        }
+
+        #s10 .s10-ring-one {
+            top: 8%;
+            right: 7%;
+        }
+
+        #s10 .s10-ring-two {
+            bottom: 8%;
+            left: 5%;
+            width: 120px;
+            border-color: rgba(255, 20, 147, 0.65);
+            animation-duration: 11s;
+            animation-direction: reverse;
+        }
+
+        /* ===== 標題：深色底保持對比 ===== */
+        #s10 .s10-header {
+            margin-bottom: 34px;
+            text-align: center;
+        }
+
+        #s10 .s10-heading-panel {
+            display: inline-block;
+            max-width: 100%;
+            padding: 24px 32px;
+            border: 1px solid #52668e;
+            border-radius: 18px;
+            background: #0d142b;
+            box-shadow: 6px 6px 0 rgba(255, 20, 147, 0.65);
+        }
+
+        #s10 .s10-eyebrow {
+            margin: 0 0 12px;
+            color: var(--s10-yellow);
+            font: 800 0.8rem Consolas, monospace;
+            letter-spacing: 0.12em;
+        }
+
+        #s10 .s10-title {
+            margin: 0;
+            color: #f5f7ff;
+            font-size: clamp(2rem, 5vw, 3.1rem);
+            font-weight: 900;
+            line-height: 1.3;
+            text-shadow:
+                3px 3px 0 #c60070,
+                -3px -2px 0 #075bc7;
+        }
+
+        #s10 .s10-motion {
+            display: block;
+            margin: 20px auto 0;
+            padding: 9px 16px;
+            border: 1px solid #8497ba;
+            border-radius: 20px;
+            color: #e6efff;
+            background: #15213c;
+            font: inherit;
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+
+        #s10 .s10-motion[hidden] {
+            display: none;
+        }
+
+        /* ===== 雙欄卡片 ===== */
+        #s10 .s10-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: stretch;
+            gap: 28px;
+        }
+
+        #s10 .s10-card {
+            display: flex;
+            min-width: 0;
+            padding: 3px;
+            border-radius: 24px;
+            background: linear-gradient(130deg,
+                    var(--s10-blue),
+                    var(--s10-yellow),
+                    var(--s10-pink),
+                    var(--s10-blue));
+            background-size: 300% 300%;
+            animation: s10-border-flow 6s ease-in-out infinite;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        #s10 .s10-card:nth-child(2) {
+            animation-delay: -3s;
+        }
+
+        #s10 .s10-card-inner {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 0;
+            overflow: hidden;
+            border-radius: 21px;
+            background: #0d142b;
+        }
+
+        /* 圖片與標題區 */
+        #s10 .s10-cover {
+            position: relative;
+            isolation: isolate;
+            display: flex;
+            align-items: flex-end;
+            min-height: 240px;
+            overflow: hidden;
+            padding: 28px;
+            background: #152441;
+        }
+
+        #s10 .s10-image {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.7s ease;
+        }
+
+        #s10 .s10-cover::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg,
+                    rgba(8, 15, 35, 0.15),
+                    rgba(8, 15, 35, 0.6) 45%,
+                    #0d142b);
+        }
+
+        #s10 .s10-number {
+            position: absolute;
+            top: 20px;
+            left: 24px;
+            padding: 8px 12px;
+            border: 1px solid #70b8ff;
+            border-radius: 6px;
+            color: var(--s10-yellow);
+            background: #0d142b;
+            font: 800 0.78rem Consolas, monospace;
+            letter-spacing: 0.08em;
+        }
+
+        #s10 .s10-card-title {
+            margin: 0 0 8px;
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+
+        #s10 .s10-english {
+            margin: 0;
+            color: #9ed5ff;
+            font: 700 0.88rem Consolas, monospace;
+            letter-spacing: 0.06em;
+        }
+
+        /* 內容區 */
+        #s10 .s10-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 8px 28px 28px;
+        }
+
+        #s10 .s10-card-subtitle {
+            margin: 0 0 18px;
+            color: var(--s10-yellow);
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.6;
+        }
+
+        #s10 .s10-description {
+            margin: 0 0 24px;
+            color: #c7d2ee;
+            font-size: 1rem;
+            line-height: 1.95;
+            overflow-wrap: anywhere;
+        }
+
+        #s10 .s10-description strong {
+            color: #ff9bd3;
+            font-weight: 700;
+        }
+
+        #s10 .s10-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: auto 0 24px;
+            padding: 0;
+            list-style: none;
+        }
+
+        #s10 .s10-tags li {
+            padding: 6px 10px;
+            border: 1px solid #49638d;
+            border-radius: 5px;
+            color: #b8dcff;
+            background: #152441;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* 按鈕 */
+        #s10 .s10-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            min-height: 50px;
+            padding: 12px 18px;
+            border: 2px solid var(--s10-yellow);
+            border-radius: 8px;
+            color: var(--s10-yellow);
+            background: #171c2b;
+            font-weight: 800;
+            text-decoration: none;
+            transition:
+                color 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        #s10 .s10-link:hover {
+            color: #0d142b;
+            background: var(--s10-yellow);
+            box-shadow: 0 0 20px rgba(255, 242, 0, 0.25);
+        }
+
+        #s10 .s10-link-pink {
+            border-color: #ff74c1;
+            color: #ff9bd3;
+        }
+
+        #s10 .s10-link-pink:hover {
+            color: #0d142b;
+            background: #ff9bd3;
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+        }
+
+        #s10 .s10-link:focus-visible,
+        #s10 .s10-motion:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 5px;
+        }
+
+        /* ===== 深淺與色系循環 ===== */
+        @keyframes s10-color-cycle {
+
+            0%,
+            100% {
+                background-color: #071b48;
+                /* 深藍 */
+            }
+
+            16.67% {
+                background-color: #dceeff;
+                /* 淺藍 */
+            }
+
+            33.33% {
+                background-color: #3a3008;
+                /* 深黃 */
+            }
+
+            50% {
+                background-color: #fff8bf;
+                /* 淺黃 */
+            }
+
+            66.67% {
+                background-color: #3b0a2b;
+                /* 深粉紅 */
+            }
+
+            83.33% {
+                background-color: #ffe0f1;
+                /* 淺粉紅 */
+            }
+        }
+
+        @keyframes s10-liquid {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                border-radius: 35% 65% 60% 40% / 45% 35% 65% 55%;
+            }
+
+            33% {
+                transform: translate(45px, 30px) rotate(35deg) scale(1.08);
+                border-radius: 65% 35% 40% 60% / 55% 65% 35% 45%;
+            }
+
+            66% {
+                transform: translate(-20px, 70px) rotate(80deg) scale(0.94);
+                border-radius: 40% 60% 70% 30% / 35% 55% 45% 65%;
+            }
+
+            100% {
+                transform: translate(30px, -15px) rotate(130deg) scale(1.04);
+                border-radius: 55% 45% 30% 70% / 65% 40% 60% 35%;
+            }
+        }
+
+        @keyframes s10-orbit {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                border-radius: 28%;
+            }
+
+            50% {
+                transform: translate(25px, -30px) rotate(180deg);
+                border-radius: 45%;
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+                border-radius: 28%;
+            }
+        }
+
+        @keyframes s10-border-flow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* 暫停所有持續動畫 */
+        #s10.s10-paused,
+        #s10.s10-paused .s10-blob,
+        #s10.s10-paused .s10-ring,
+        #s10.s10-paused .s10-card {
+            animation-play-state: paused;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            #s10 .s10-card:hover {
+                transform: translateY(-5px);
+            }
+
+            #s10 .s10-card:hover .s10-image {
+                transform: scale(1.05);
+            }
+        }
+
+        /* 手機改成單欄 */
+        @media (max-width: 767px) {
+            #s10 {
+                padding: 56px 16px;
+            }
+
+            #s10 .s10-grid {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 24px;
+            }
+
+            #s10 .s10-heading-panel {
+                padding: 22px;
+            }
+
+            #s10 .s10-cover {
+                min-height: 220px;
+                padding: 24px;
+            }
+
+            #s10 .s10-content {
+                padding: 8px 24px 24px;
+            }
+        }
+
+        /* 尊重減少動態效果設定 */
+        @media (prefers-reduced-motion: reduce) {
+
+            #s10,
+            #s10 .s10-blob,
+            #s10 .s10-ring,
+            #s10 .s10-card {
+                animation: none;
+            }
+
+            #s10 .s10-card,
+            #s10 .s10-image,
+            #s10 .s10-link {
+                transition: none;
+            }
+
+            #s10 .s10-card:hover,
+            #s10 .s10-card:hover .s10-image {
+                transform: none;
+            }
+
+            #s10 .s10-motion {
+                display: none;
+            }
+        }
+
+
+        /* =================================================== */
+        /* =================================================== */
+
+
+
+        /* ===== Footer：深色賽博龐克 ===== */
+        #s11 {
+            position: relative;
+            isolation: isolate;
+            padding: 28px 20px;
+            color: #c7d2ee;
+            background: #080b20;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        }
+
+        #s11,
+        #s11 *,
+        #s11 *::before,
+        #s11 *::after {
+            box-sizing: border-box;
+        }
+
+        /*
+     * 1 CSS pixel 細線
+     * 漸層週期與位移距離一致，無縫由左向右循環。
+     * 任一位置都會依序經過藍色、黃色、粉紅色。
+     */
+        #s11::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 1px;
+            pointer-events: none;
+            background-image: linear-gradient(90deg,
+                    #1685ff 0%,
+                    #ff1493 33.333%,
+                    #fff200 66.667%,
+                    #1685ff 100%);
+            background-size: 360px 1px;
+            background-repeat: repeat-x;
+            animation: s11-line-flow 4s linear infinite;
+        }
+
+        #s11 .s11-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px 30px;
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* 版權資訊不是連結 */
+        #s11 .s11-copyright {
+            margin: 0;
+            color: #b7c5e1;
+            font-size: 0.88rem;
+            line-height: 1.8;
+        }
+
+        #s11 .s11-copyright strong {
+            color: #fff200;
+            font-weight: 800;
+        }
+
+        #s11 .s11-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #s11 .s11-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 44px;
+            padding: 8px 4px;
+            border-radius: 4px;
+            color: #91caff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            line-height: 1.5;
+            text-decoration: none;
+            text-underline-offset: 6px;
+            transition: color 0.2s ease;
+        }
+
+        #s11 .s11-links li:nth-child(2) .s11-link {
+            color: #ff9bd3;
+        }
+
+        #s11 .s11-links li:nth-child(3) .s11-link {
+            color: #fff200;
+        }
+
+        #s11 .s11-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        #s11 .s11-link:focus-visible {
+            outline: 2px solid #fff200;
+            outline-offset: 5px;
+        }
+
+        #s11 .s11-arrow {
+            font-size: 1rem;
+        }
+
+        @keyframes s11-line-flow {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 360px 0;
+            }
+        }
+
+        /* 手機置中排列 */
+        @media (max-width: 767px) {
+            #s11 {
+                padding: 24px 16px;
+            }
+
+            #s11 .s11-container {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            #s11 .s11-links {
+                justify-content: center;
+                gap: 8px 16px;
+            }
+        }
+
+        /* 減少動態效果時，保留靜態三色細線 */
+        @media (prefers-reduced-motion: reduce) {
+            #s11::before {
+                animation: none;
+            }
+
+            #s11 .s11-link {
+                transition: none;
+            }
+        }
     </style>
+
+
 </head>
 
 <body>
@@ -887,10 +3664,10 @@
 
 
     <!-- section 05 -- 個人特質 / 我的工作信念 AI生成-->
-    <section id="s05">
+    <!-- <section id="s05">
         <div class="container py-5">
 
-            <!-- 標題區 -->
+
             <div class="s05-heading text-center mb-5">
                 <span class="s05-eyebrow">MY WORK PHILOSOPHY</span>
                 <h2 class="display-4 fw-bold mt-3">我的工作信念</h2>
@@ -901,7 +3678,7 @@
 
             <div class="row g-4">
 
-                <!-- 特質 01 -->
+
                 <div class="col-md-4">
                     <div class="s05-card h-100">
                         <div class="s05-icon s05-icon-blue">
@@ -926,7 +3703,7 @@
                     </div>
                 </div>
 
-                <!-- 特質 02 -->
+        
                 <div class="col-md-4">
                     <div class="s05-card h-100">
                         <div class="s05-icon s05-icon-purple">
@@ -951,7 +3728,7 @@
                     </div>
                 </div>
 
-                <!-- 特質 03 -->
+             
                 <div class="col-md-4">
                     <div class="s05-card h-100">
                         <div class="s05-icon s05-icon-teal">
@@ -978,14 +3755,163 @@
 
             </div>
 
-            <!-- 底部信念 -->
+  
             <div class="s05-footer text-center mt-5">
                 <i class="fa-solid fa-quote-left"></i>
                 <span>把事情做好，把細節做對，讓每一次努力都創造價值。</span>
             </div>
 
         </div>
+    </section> -->
+
+
+    <!-- Section 05：我的工作信念 Samu使用GPT生成 -->
+    <section id="s05" aria-labelledby="s05-title">
+        <div class="s05-container">
+
+            <header class="s05-heading">
+                <span class="s05-eyebrow" lang="en">
+                    MY WORK PHILOSOPHY
+                </span>
+                <h2 id="s05-title" class="s05-title">我的工作信念</h2>
+                <p class="s05-subtitle">
+                    好的成果，來自正確的態度、持續的精進，以及彼此成就的團隊。
+                </p>
+            </header>
+
+            <div class="s05-grid">
+
+                <!-- 特質 01 -->
+                <article class="s05-card">
+                    <div class="s05-panel">
+
+                        <!-- 裝飾性流體幾何動畫 -->
+                        <div class="s05-fluid" aria-hidden="true">
+                            <span class="s05-shape s05-shape-blue"></span>
+                            <span class="s05-shape s05-shape-pink"></span>
+                            <span class="s05-shape s05-shape-yellow"></span>
+                        </div>
+
+                        <div class="s05-card-top">
+                            <div class="s05-icon" aria-hidden="true">
+                                <!-- 靶心圖示 -->
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <circle cx="12" cy="12" r="9"></circle>
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                </svg>
+                            </div>
+                            <span class="s05-index" aria-hidden="true">01</span>
+                        </div>
+
+                        <span class="s05-number">01 / INITIATIVE</span>
+                        <h3>主動解決問題</h3>
+
+                        <p>
+                            面對挑戰，我習慣先釐清問題、分析原因，
+                            再拆解成可執行的步驟。不等待問題擴大，
+                            而是主動尋找解法，持續優化流程，
+                            讓每一次挑戰都成為改善的契機。
+                        </p>
+
+                        <ul class="s05-tags" aria-label="主動解決問題的特質">
+                            <li>問題分析</li>
+                            <li>主動執行</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 特質 02 -->
+                <article class="s05-card">
+                    <div class="s05-panel">
+
+                        <div class="s05-fluid" aria-hidden="true">
+                            <span class="s05-shape s05-shape-blue"></span>
+                            <span class="s05-shape s05-shape-pink"></span>
+                            <span class="s05-shape s05-shape-yellow"></span>
+                        </div>
+
+                        <div class="s05-card-top">
+                            <div class="s05-icon" aria-hidden="true">
+                                <!-- 燈泡圖示 -->
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <path d="M9 17v-2c-2-1-3-3-3-5a6 6 0 0 1 12 0c0 2-1 4-3 5v2"></path>
+                                    <path d="M9 18h6M10 21h4M12 2V1M4 4 3 3M20 4l1-1"></path>
+                                </svg>
+                            </div>
+                            <span class="s05-index" aria-hidden="true">02</span>
+                        </div>
+
+                        <span class="s05-number">02 / GROWTH</span>
+                        <h3>持續學習成長</h3>
+
+                        <p>
+                            保持好奇心，積極接觸新技術與新工具，
+                            並將所學實際應用於工作與專案。
+                            我相信專業沒有終點，唯有持續學習、
+                            勇於嘗試與定期反思，才能不斷突破自己。
+                        </p>
+
+                        <ul class="s05-tags" aria-label="持續學習成長的特質">
+                            <li>持續精進</li>
+                            <li>創新思維</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 特質 03 -->
+                <article class="s05-card">
+                    <div class="s05-panel">
+
+                        <div class="s05-fluid" aria-hidden="true">
+                            <span class="s05-shape s05-shape-blue"></span>
+                            <span class="s05-shape s05-shape-pink"></span>
+                            <span class="s05-shape s05-shape-yellow"></span>
+                        </div>
+
+                        <div class="s05-card-top">
+                            <div class="s05-icon" aria-hidden="true">
+                                <!-- 團隊圖示 -->
+                                <svg viewBox="0 0 24 24" focusable="false">
+                                    <circle cx="12" cy="7" r="3"></circle>
+                                    <path d="M6 21v-3a6 6 0 0 1 12 0v3"></path>
+                                    <path d="M5 5a3 3 0 0 0 0 6M19 5a3 3 0 0 1 0 6"></path>
+                                    <path d="M2 19v-2a4 4 0 0 1 3-4M22 19v-2a4 4 0 0 0-3-4"></path>
+                                </svg>
+                            </div>
+                            <span class="s05-index" aria-hidden="true">03</span>
+                        </div>
+
+                        <span class="s05-number">03 / COLLABORATION</span>
+                        <h3>重視團隊合作</h3>
+
+                        <p>
+                            尊重不同觀點，主動溝通需求與進度，
+                            讓資訊透明、目標一致。
+                            我重視團隊中的互相支持與經驗分享，
+                            相信良好的合作能讓個人能力轉化為更大的成果。
+                        </p>
+
+                        <ul class="s05-tags" aria-label="重視團隊合作的特質">
+                            <li>有效溝通</li>
+                            <li>共同成長</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <div class="s05-footer">
+                <p>
+                    <span class="s05-footer-mark" aria-hidden="true">「</span>
+                    把事情做好，把細節做對，讓每一次努力都創造價值。
+                    <span class="s05-footer-mark" aria-hidden="true">」</span>
+                </p>
+            </div>
+
+        </div>
     </section>
+
+
 
     <!-- section 6 -- 關於我  -->
     <!-- <section id="s06" style="position: relative;">
@@ -1007,8 +3933,8 @@
 
 
 
-    <!-- section 6 -- 關於我 AI生成-->
-    <section id="s06" style="position: relative;">
+    <!-- section 6 -- 關於我 老師使用AI生成-->
+    <!-- <section id="s06" style="position: relative;">
         <div class="row">
             <div class="col-md-5 bg-img d-none d-md-block"
                 style="background-image: url(images/tree.jpg); position: absolute; top: 0; bottom: 0;">
@@ -1055,12 +3981,947 @@
                 </div>
             </div>
         </div>
+    </section> -->
+
+    <!-- section 6：關於我 Samu使用GPT生成 -->
+    <section id="s06" aria-labelledby="s06-heading">
+        <div class="s06-container">
+            <div class="s06-layout">
+
+                <!-- 左側視覺：可自行更換圖片路徑 -->
+                <div class="s06-visual">
+                    <div class="s06-image-frame">
+                        <img src="images/tree.jpg" alt="" class="s06-image" loading="lazy" decoding="async">
+
+                        <div class="s06-scan" aria-hidden="true"></div>
+
+                        <span class="s06-image-label">
+                            CODE / DESIGN / GROW
+                        </span>
+
+                        <div class="s06-image-caption">
+                            <span class="s06-code" aria-hidden="true">&lt;/&gt;</span>
+                            <p>將創意寫進程式<br>讓想法成為作品</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右側介紹 -->
+                <div class="s06-content">
+                    <p class="s06-eyebrow">PROFILE / 06</p>
+
+                    <h2 id="s06-heading" class="s06-title">
+                        關於我
+                        <span class="s06-en" lang="en">ABOUT ME</span>
+                    </h2>
+
+                    <p class="s06-intro">
+                        我是一位熱愛程式開發的網頁開發者，
+                        對<strong>前端技術、互動設計與使用者體驗</strong>充滿熱情。
+                        喜歡透過 HTML、CSS、JavaScript 等技術，
+                        將創意與想法轉化為實際的網頁作品，
+                        並在每一次開發過程中累積經驗、提升專業能力。
+                    </p>
+
+                    <p class="s06-intro">
+                        我相信優秀的作品不只是畫面美觀、功能完整，
+                        更需要兼顧操作流暢度、資訊易讀性與不同裝置的使用體驗。
+                        因此，我重視<strong>網頁排版、程式碼品質與細節設計</strong>，
+                        期望透過持續優化，打造兼具美感與實用性的數位產品。
+                    </p>
+
+                    <p class="s06-intro">
+                        目前持續累積個人網頁作品與專案實作經驗，
+                        精進響應式網頁設計（RWD）、Bootstrap 版面配置、
+                        JavaScript 互動效果與問題排除能力。
+                        未來也希望接觸更多開發工具與技術，
+                        <strong>持續突破自我</strong>，讓每一份作品都展現更成熟的實力。
+                    </p>
+
+                    <ul class="s06-skills" aria-label="學習與使用的技術">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>RWD</li>
+                        <li>Bootstrap</li>
+                    </ul>
+
+                    <!-- 保留原始連結，可自行修改 -->
+                    <a href="#s05" class="s06-btn">
+                        <span>了解更多</span>
+                        <span class="s06-arrow" aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 7 -- 作品集 -->
+    <!-- <section id="s07">
+        <div class="container my-5">
+            <div class="h1 text-center fw-bold text-info my-4">精選作品集</div>
+            <p class="text-center">以下是我在學習過程中累積下來的練習作品，從簡單到複雜，從前端到後端的完整實作範例。</p>
+
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <i class="fa-solid fa-laptop fa-8x text-danger me-3"></i>
+                    <div>
+                        <div class="h3">作品編號01(限6個字)</div>
+                        <p class="mb-0">使用技術: HTML/CSS/PHP</p>
+                        <p>作品簡介: 結合前端切版布局， ....約50個字針對作品主題與心得介紹，必須強調學習心得。</p>
+                        <a href="#" class="btn btn-outline-success d-block"><i class="fa-solid fa-laptop"></i>作品連接</a>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <i class="fa-solid fa-laptop fa-8x text-danger me-3"></i>
+                    <div>
+                        <div class="h3">作品編號02(限6個字)</div>
+                        <p class="mb-0">使用技術: HTML/CSS/PHP</p>
+                        <p>作品簡介: 結合前段切版布局， 一是休閒辦理陽明山和諧大連心理偉大讓我們，沒有什麼精英互動我真不禁含有包括人事傷心直到歌曲，完成問。</p>
+                        <a href="#" class="btn btn-outline-success d-block"><i class="fa-solid fa-laptop"></i>作品連接</a>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <i class="fa-solid fa-laptop fa-8x text-danger me-3"></i>
+                    <div>
+                        <div class="h3">作品編號03(限6個字)</div>
+                        <p class="mb-0">使用技術: HTML/CSS/PHP</p>
+                        <p>作品簡介: 結合前段切版布局， 一是休閒辦理陽明山和諧大連心理偉大讓我們，沒有什麼精英互動我真不禁含有包括人事傷心直到歌曲，完成問。</p>
+                        <a href="#" class="btn btn-outline-success d-block"><i class="fa-solid fa-laptop"></i>作品連接</a>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <i class="fa-solid fa-laptop fa-8x text-danger me-3"></i>
+                    <div>
+                        <div class="h3">作品編號04(限6個字)</div>
+                        <p class="mb-0">使用技術: HTML/CSS/PHP</p>
+                        <p>作品簡介: 結合前段切版布局， 一是休閒辦理陽明山和諧大連心理偉大讓我們，沒有什麼精英互動我真不禁含有包括人事傷心直到歌曲，完成問。</p>
+                        <a href="#" class="btn btn-outline-success d-block"><i class="fa-solid fa-laptop"></i>作品連接</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- section 7：作品集 Samu使用GPT生成-->
+    <section id="s07" aria-labelledby="s07-title">
+        <div class="s07-container">
+            <header class="s07-header">
+                <p class="s07-label">CODE / DESIGN / CREATE</p>
+                <h2 id="s07-title" class="s07-title">精選作品集</h2>
+                <p class="s07-subtitle">
+                    從前端切版到後端資料處理，透過四項練習作品，
+                    記錄每一次實作、解決問題與持續成長的過程。
+                </p>
+            </header>
+
+            <div class="s07-grid">
+                <!-- 作品 01 -->
+                <article class="s07-card">
+                    <div class="s07-panel">
+                        <div class="s07-card-top">
+                            <span class="s07-number">PROJECT / 01</span>
+                            <span class="s07-symbol" aria-hidden="true">&lt;/&gt;</span>
+                        </div>
+
+                        <h3 class="s07-card-title">個人形象網站</h3>
+
+                        <div class="s07-tech">
+                            <span class="s07-tech-label">使用技術：</span>
+                            <span class="s07-tag">HTML</span>
+                            <span class="s07-tag">CSS</span>
+                            <span class="s07-tag">PHP</span>
+                        </div>
+
+                        <p class="s07-description">
+                            整合個人介紹、作品展示與聯絡表單，練習響應式切版及
+                            PHP 表單處理。<strong>學會規劃資訊層級，理解版面與使用體驗的關係。</strong>
+                        </p>
+
+                        <!-- 請自行設定 href -->
+                        <a href="#" class="s07-link" aria-label="查看作品：個人形象網站">
+                            <span>查看作品</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 作品 02 -->
+                <article class="s07-card">
+                    <div class="s07-panel">
+                        <div class="s07-card-top">
+                            <span class="s07-number">PROJECT / 02</span>
+                            <span class="s07-symbol" aria-hidden="true">[+]</span>
+                        </div>
+
+                        <h3 class="s07-card-title">商品展示平台</h3>
+
+                        <div class="s07-tech">
+                            <span class="s07-tech-label">使用技術：</span>
+                            <span class="s07-tag">HTML</span>
+                            <span class="s07-tag">CSS</span>
+                            <span class="s07-tag">PHP</span>
+                        </div>
+
+                        <p class="s07-description">
+                            以商品卡片呈現圖片、價格與分類，練習透過 PHP
+                            動態輸出內容。<strong>學會拆解重複版型，提升程式維護效率與畫面一致性。</strong>
+                        </p>
+
+                        <!-- 請自行設定 href -->
+                        <a href="#" class="s07-link" aria-label="查看作品：商品展示平台">
+                            <span>查看作品</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 作品 03 -->
+                <article class="s07-card">
+                    <div class="s07-panel">
+                        <div class="s07-card-top">
+                            <span class="s07-number">PROJECT / 03</span>
+                            <span class="s07-symbol" aria-hidden="true">{ }</span>
+                        </div>
+
+                        <h3 class="s07-card-title">活動報名系統</h3>
+
+                        <div class="s07-tech">
+                            <span class="s07-tech-label">使用技術：</span>
+                            <span class="s07-tag">HTML</span>
+                            <span class="s07-tag">CSS</span>
+                            <span class="s07-tag">PHP</span>
+                        </div>
+
+                        <p class="s07-description">
+                            製作活動介紹與線上報名表單，練習欄位驗證及 PHP
+                            資料接收。<strong>理解前後端資料傳遞，學會以明確提示協助使用者完成操作。</strong>
+                        </p>
+
+                        <!-- 請自行設定 href -->
+                        <a href="#" class="s07-link" aria-label="查看作品：活動報名系統">
+                            <span>查看作品</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 作品 04 -->
+                <article class="s07-card">
+                    <div class="s07-panel">
+                        <div class="s07-card-top">
+                            <span class="s07-number">PROJECT / 04</span>
+                            <span class="s07-symbol" aria-hidden="true">//</span>
+                        </div>
+
+                        <h3 class="s07-card-title">旅遊文章網站</h3>
+
+                        <div class="s07-tech">
+                            <span class="s07-tech-label">使用技術：</span>
+                            <span class="s07-tag">HTML</span>
+                            <span class="s07-tag">CSS</span>
+                            <span class="s07-tag">PHP</span>
+                        </div>
+
+                        <p class="s07-description">
+                            建立景點文章列表與閱讀頁面，練習圖文排版及 PHP
+                            共用頁面設計。<strong>學會整理內容結構，兼顧不同裝置的閱讀體驗與維護需求。</strong>
+                        </p>
+
+                        <!-- 請自行設定 href -->
+                        <a href="#" class="s07-link" aria-label="查看作品：旅遊文章網站">
+                            <span>查看作品</span>
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
     </section>
 
 
 
 
+    <!-- section 8 -- 學經歷介紹-->
+
+    <!-- <section id="s08" style="position: relative;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="h1 text-center fw-900 text-info my-4">學經歷介紹</div>
+                    <dl class="row">
+                        <dt class="col-sm-3">個人特質</dt>
+                        <dd class="col-sm-9">工作經驗共5年的前端工程師</dd>
+
+                        <dt class="col-sm-3">學歷</dt>
+                        <dd class="col-sm-9">
+                            <p>1.學歷簡介</p>
+                            <p>2.學歷簡介</p>
+                            <p>3.學歷簡介</p>
+                        </dd>
+
+                        <dt class="col-sm-3">工作年資</dt>
+                        <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+
+                        <dt class="col-sm-3 text-truncate">XX公司經歷</dt>
+                        <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+
+                        <dt class="col-sm-3">XX公司經歷</dt>
+                        <dd class="col-sm-9">
+                            <dl class="row">
+                                <dt class="col-sm-4">Nested definition list</dt>
+                                <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list
+                                    inside your definition list.</dd>
+                            </dl>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-md-5 bg-img d-none d-md-block"
+                style="position: absolute ;background-image: url(images/programmer-working01.avif); top: 0; bottom: 0;">
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- Section 08：學經歷介紹 Samu使用GPT生成-->
+    <section id="s08" aria-labelledby="s08-title">
+
+        <!-- 整區裝飾背景 -->
+        <div class="s08-background" aria-hidden="true">
+            <span class="s08-blob s08-blob-blue"></span>
+            <span class="s08-blob s08-blob-pink"></span>
+            <span class="s08-blob s08-blob-yellow"></span>
+            <span class="s08-geometry s08-geometry-one"></span>
+            <span class="s08-geometry s08-geometry-two"></span>
+        </div>
+
+        <div class="s08-container">
+            <header class="s08-header">
+                <span class="s08-eyebrow" lang="en">
+                    EDUCATION / EXPERIENCE
+                </span>
+                <h2 id="s08-title" class="s08-title">學經歷介紹</h2>
+                <p class="s08-subtitle">
+                    從學習到實作，讓每一段經歷累積成持續前進的力量。
+                </p>
+            </header>
+
+            <div class="s08-layout">
+
+                <!-- 左側：請依實際情況修改資料 -->
+                <div class="s08-details">
+                    <dl class="s08-list">
+
+                        <div class="s08-entry">
+                            <dt>個人簡介</dt>
+                            <dd>
+                                <strong>具備 5 年工作經驗的前端工程師</strong>
+                                <p>
+                                    重視網頁介面、互動設計與使用者體驗，
+                                    持續透過實作累積開發能力。
+                                </p>
+                            </dd>
+                        </div>
+
+                        <div class="s08-entry">
+                            <dt>學歷</dt>
+                            <dd>
+                                <ol class="s08-education">
+                                    <li>［學校名稱／科系／畢業年份］</li>
+                                    <li>［進修學校／課程名稱／修習期間］</li>
+                                    <li>［相關培訓／證照名稱／取得年份］</li>
+                                </ol>
+                            </dd>
+                        </div>
+
+                        <div class="s08-entry">
+                            <dt>工作年資</dt>
+                            <dd>
+                                <span class="s08-experience">累計 5 年</span>
+                                <p>［請填寫主要工作領域與專業經驗］</p>
+                            </dd>
+                        </div>
+
+                        <div class="s08-entry">
+                            <dt>工作經歷一</dt>
+                            <dd>
+                                <span class="s08-period">
+                                    ［起始年月］—［結束年月／至今］
+                                </span>
+                                <strong>［公司名稱］／［職稱］</strong>
+                                <p>
+                                    ［請填寫主要工作內容、參與專案、
+                                    使用技術及具體成果。］
+                                </p>
+                            </dd>
+                        </div>
+
+                        <div class="s08-entry">
+                            <dt>工作經歷二</dt>
+                            <dd>
+                                <span class="s08-period">
+                                    ［起始年月］—［結束年月］
+                                </span>
+                                <strong>［公司名稱］／［職稱］</strong>
+                                <p>
+                                    ［請填寫職務內容、負責項目，
+                                    以及在此階段累積的經驗與能力。］
+                                </p>
+                            </dd>
+                        </div>
+
+                    </dl>
+                </div>
+
+                <!-- 右側：保留原始圖片路徑 -->
+                <figure class="s08-visual">
+                    <div class="s08-image-frame">
+                        <img src="images/tokyoNight__s1200.jpg" alt="" class="s08-image" loading="lazy"
+                            decoding="async">
+
+                        <span class="s08-image-label">
+                            LEARN / BUILD / EVOLVE
+                        </span>
+
+                        <figcaption class="s08-caption">
+                            <span class="s08-caption-code" aria-hidden="true">
+                                &lt;/&gt;
+                            </span>
+                            <p>累積經驗<br>讓專業持續進化</p>
+                            <small>
+                                每一次學習與實作，都是下一次突破的起點。
+                            </small>
+                        </figcaption>
+                    </div>
+                </figure>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- section 9 -- 聯絡我-->
+    <!-- <section id="s09">
+        <div class="container py-4">
+            <div class="h1 text-center section-title my-4">
+                聯絡我 CONTACT ME
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control form-control-lg" placeholder="XXXXXXX">
+                        <label for="username" class="form-label">姓名</label>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control form-control-lg" placeholder="XXXXXXX">
+                        <label for="email" class="form-label">電子信箱</label>
+                    </div>
+                    <select name="" id="" class="form-select form-select-lg">
+                        <option value="" class="text-center" disabled selected>---聯絡主題---</option>
+                        <option value="面試邀約">面試邀約</option>
+                        <option value="專案討論">專案討論</option>
+                        <option value="接案洽詢">接案洽詢</option>
+                        <option value="其它">其它</option>
+                    </select>
+                    <textarea name="" id="" class="form-control my-3" cols="10" rows="8"
+                        placeholder="請輸入訊息內容....."></textarea>
+                    <div class="text-end my-3">
+                        <button class="btn btn-secondary">取消</button>
+                        <button class="btn btn-primary">送出</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14560.365550356555!2d120.60847195!3d24.16852755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693e048d342aa9%3A0x2b6f18a6783fa3b!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5Lit5b2w5oqV5YiG572y77yI6Ie65Lit6IG36KiT5bGA77yJ!5e0!3m2!1szh-TW!2stw!4v1793674139217!5m2!1szh-TW!2stw"
+                        width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- Section 09：聯絡我 Samu使用GPT生成-->
+    <section id="s09" aria-labelledby="s09-title">
+
+        <div class="s09-background" aria-hidden="true">
+            <span class="s09-blob s09-blob-blue"></span>
+            <span class="s09-blob s09-blob-pink"></span>
+            <span class="s09-blob s09-blob-yellow"></span>
+            <span class="s09-geometry s09-geometry-one"></span>
+            <span class="s09-geometry s09-geometry-two"></span>
+            <span class="s09-geometry s09-geometry-three"></span>
+        </div>
+
+        <div class="s09-container">
+            <header class="s09-header">
+                <p class="s09-eyebrow">CONNECT / DISCUSS / CREATE</p>
+                <h2 id="s09-title" class="s09-title">聯絡我 CONTACT ME</h2>
+                <p class="s09-subtitle">
+                    無論是面試邀約、專案討論或合作提案，歡迎與我聯繫。
+                </p>
+
+                <button type="button" class="s09-motion" aria-pressed="false" hidden>
+                    暫停背景動畫
+                </button>
+            </header>
+
+            <div class="s09-layout">
+
+                <!-- 聯絡表單 -->
+                <div class="s09-shell">
+                    <div class="s09-panel">
+                        <h3 class="s09-panel-title">留下您的訊息</h3>
+                        <p id="s09-form-note" class="s09-note">
+                            所有欄位皆為必填。目前為前端示範，尚未串接寄信服務。
+                        </p>
+
+                        <form id="s09-contact-form" aria-describedby="s09-form-note">
+                            <div class="s09-field">
+                                <label for="s09-name" class="s09-label">
+                                    姓名 <span class="s09-required" aria-hidden="true">*</span>
+                                </label>
+                                <input id="s09-name" name="name" type="text" class="s09-control" placeholder="請輸入您的姓名"
+                                    autocomplete="name" maxlength="80" required>
+                            </div>
+
+                            <div class="s09-field">
+                                <label for="s09-email" class="s09-label">
+                                    電子信箱 <span class="s09-required" aria-hidden="true">*</span>
+                                </label>
+                                <input id="s09-email" name="email" type="email" class="s09-control"
+                                    placeholder="name@example.com" autocomplete="email" maxlength="254" required>
+                            </div>
+
+                            <div class="s09-field">
+                                <label for="s09-topic" class="s09-label">
+                                    聯絡主題 <span class="s09-required" aria-hidden="true">*</span>
+                                </label>
+                                <select id="s09-topic" name="topic" class="s09-control" required>
+                                    <option value="" disabled selected>請選擇聯絡主題</option>
+                                    <option value="面試邀約">面試邀約</option>
+                                    <option value="專案討論">專案討論</option>
+                                    <option value="接案洽詢">接案洽詢</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                            </div>
+
+                            <div class="s09-field">
+                                <label for="s09-message" class="s09-label">
+                                    訊息內容 <span class="s09-required" aria-hidden="true">*</span>
+                                </label>
+                                <textarea id="s09-message" name="message" class="s09-control" rows="6" maxlength="5000"
+                                    placeholder="請簡單說明您的需求、合作內容或預計時程……" required></textarea>
+                            </div>
+
+                            <div class="s09-actions">
+                                <button type="reset" class="s09-button s09-reset">
+                                    清除
+                                </button>
+                                <!-- JavaScript 初始化後啟用，避免未串接時誤送出 -->
+                                <button type="submit" class="s09-button s09-submit" disabled>
+                                    送出
+                                    <span aria-hidden="true">↗</span>
+                                </button>
+                            </div>
+
+                            <p id="s09-status" class="s09-status" role="status" aria-live="polite" aria-atomic="true">
+                            </p>
+
+                            <noscript>
+                                <p class="s09-note">
+                                    請啟用 JavaScript 使用表單示範功能；目前不會實際傳送資料。
+                                </p>
+                            </noscript>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 原始地圖 -->
+                <div class="s09-shell">
+                    <div class="s09-panel s09-map-panel">
+                        <h3 class="s09-panel-title">地點資訊</h3>
+                        <p class="s09-note">可透過下方地圖查看位置與周邊道路。</p>
+
+                        <div class="s09-map-frame">
+                            <iframe class="s09-map" title="地點地圖：勞動力發展署中彰投分署"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14560.365550356555!2d120.60847195!3d24.16852755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693e048d342aa9%3A0x2b6f18a6783fa3b!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5Lit5b2w5oqV5YiG572y77yI6Ie65Lit6IG36KiT5bGA77yJ!5e0!3m2!1szh-TW!2stw!4v1793674139217!5m2!1szh-TW!2stw"
+                                width="600" height="500" allowfullscreen loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+
+                        <p class="s09-map-caption">
+                            EVERY CONNECTION STARTS A POSSIBILITY.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- section 10 未來展望 老師的原始版本 -->
+    <!-- <section id="s10">
+        <div class="row">
+            <div class="col-md-6 bg-img p-5" style="background-image: url(images/programmer-working01.avif);">
+                <div class="col-8 p-3 shadow-sm" style="background-color: rgba(0, 0, 0, 0.3);">
+                    <div class="h1 text-light">未來願景</div><small class="text-info">Future Vision</small>
+                    <div class="h2 text-white">持續精進，累績實力...</div>
+                    <p class="text-white">我認為優秀的工程師不適只有熟悉語法，也要........持續深化前端技術(Vuejs....)
+                        我們吸引高興很少歲月幾次合理我一再度最大通知他還多麼實現，隨便影響時期方面十二讀書體系選手女士裝飾，幾天自我他說統計作出西方給我們姐姐職工不到，主席您現在公路哥哥一陣滿足花園發出我真招聘引用採訪客戶。(產生150字)
+                    </p>
+                    <a href="#s07" class="btn btn-outline-info w-100">查看我的作品</a>
+                </div>
+            </div>
+            <div class="col-md-6 bg-img p-5" style="background-image: url(images/programmer-working01.avif);">
+                <div class="col-8 p-3 shadow-sm" style="background-color: rgba(0, 0, 0, 0.3);">
+                    <div class="h1 text-light">職涯發展</div><small class="text-info">Career Development</small>
+                    <div class="h2 text-white">探索AI.....</div>
+                    <p class="text-white">
+                        關於人工智慧相關的議題....很少歲月幾次合理我一再度最大通知他還多麼實現，隨便影響時期方面十二讀書體系選手女士裝飾，幾天自我他說統計作出西方給我們姐姐職工不到，主席您現在公路哥哥一陣滿足花園發出我真招聘引用採訪客戶。(產生150字)。(產生150字)
+                    </p>
+                    <a href="#09" class="btn btn-outline-info w-100">與我聯絡</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+
+
+    <!-- Section 10：未來展望 Samu使用GPT生成-->
+    <section id="s10" aria-labelledby="s10-title">
+
+        <!-- 流體幾何裝飾背景 -->
+        <div class="s10-background" aria-hidden="true">
+            <span class="s10-blob s10-blob-blue"></span>
+            <span class="s10-blob s10-blob-yellow"></span>
+            <span class="s10-blob s10-blob-pink"></span>
+            <span class="s10-ring s10-ring-one"></span>
+            <span class="s10-ring s10-ring-two"></span>
+        </div>
+
+        <div class="s10-container">
+            <header class="s10-header">
+                <div class="s10-heading-panel">
+                    <p class="s10-eyebrow">LEARN / EXPLORE / EVOLVE</p>
+                    <h2 id="s10-title" class="s10-title">未來展望</h2>
+
+                    <button type="button" class="s10-motion" aria-pressed="false" hidden>
+                        暫停背景動畫
+                    </button>
+                </div>
+            </header>
+
+            <div class="s10-grid">
+
+                <!-- 未來願景 -->
+                <article class="s10-card">
+                    <div class="s10-card-inner">
+                        <div class="s10-cover">
+                            <img src="images/people-blur.jpg" alt="" class="s10-image" loading="lazy" decoding="async">
+
+                            <span class="s10-number">VISION / 01</span>
+
+                            <div>
+                                <h3 class="s10-card-title">未來願景</h3>
+                                <p class="s10-english" lang="en">
+                                    Future Vision
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="s10-content">
+                            <h4 class="s10-card-subtitle">
+                                持續精進，累積實力
+                            </h4>
+
+                            <p class="s10-description">
+                                我認為優秀的工程師不只是熟悉語法，
+                                更要理解需求、解決問題，並重視使用者體驗。
+                                未來將持續深化 JavaScript、Vue.js 與響應式設計，
+                                加強元件拆分、資料串接及效能優化能力。
+                                透過實際專案與版本管理，培養清楚的開發流程，
+                                同時精進無障礙設計與測試觀念。
+                                我希望把每次實作的心得轉化為可重用的方法，
+                                <strong>打造兼具美感、穩定性與維護性的網頁作品。</strong>
+                            </p>
+
+                            <ul class="s10-tags" aria-label="未來學習方向">
+                                <li>Vue.js</li>
+                                <li>響應式設計</li>
+                                <li>效能優化</li>
+                                <li>無障礙設計</li>
+                            </ul>
+
+                            <a href="#s07" class="s10-link">
+                                <span>查看我的作品</span>
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 職涯發展 -->
+                <article class="s10-card">
+                    <div class="s10-card-inner">
+                        <div class="s10-cover">
+                            <!-- 可自行換成另一張圖片 -->
+                            <img src="images/light-blur.jpg" alt="" class="s10-image" loading="lazy" decoding="async">
+
+                            <span class="s10-number">CAREER / 02</span>
+
+                            <div>
+                                <h3 class="s10-card-title">職涯發展</h3>
+                                <p class="s10-english" lang="en">
+                                    Career Development
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="s10-content">
+                            <h4 class="s10-card-subtitle">
+                                探索 AI，拓展專業可能
+                            </h4>
+
+                            <p class="s10-description">
+                                面對人工智慧的發展，我希望結合網頁設計與程式開發經驗，
+                                探索生成式 AI、流程自動化及智慧互動介面的應用。
+                                從小型專案開始，練習串接服務、整理資料與驗證輸出，
+                                理解工具的能力與限制，重視隱私與資訊正確性。
+                                職涯上將持續培養需求分析、跨領域溝通與專案協作能力，
+                                <strong>讓新技術轉化為實際價值。</strong>
+                                期待參與多元團隊，逐步成長為能整合設計、開發與 AI 的實務工作者。
+                            </p>
+
+                            <ul class="s10-tags" aria-label="職涯探索方向">
+                                <li>生成式 AI</li>
+                                <li>流程自動化</li>
+                                <li>服務串接</li>
+                                <li>跨領域協作</li>
+                            </ul>
+
+                            <a href="#s09" class="s10-link s10-link-pink">
+                                <span>與我聯絡</span>
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- section 11 Footer-- -->
+    <!-- <section id="s11" class="bg-secondary">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link disabled text-white fw-900">@CopyRight 2026...</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">友站連結01</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">友站連結01</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">直播賣場</a>
+                </li>
+            </ul>
+        </div>
+    </section> -->
+
+
+    <!-- Footer -->
+    <footer id="s11">
+        <div class="s11-container">
+
+            <!-- 可自行修改網站名稱 -->
+            <p class="s11-copyright">
+                &copy; 2026 <strong>個人作品集</strong>．保留所有權利
+            </p>
+
+            <nav aria-label="頁尾相關連結">
+                <ul class="s11-links">
+                    <li>
+                        <!-- 請自行設定 href -->
+                        <a href="#" class="s11-link">
+                            <span>友站連結01</span>
+                            <span class="s11-arrow" aria-hidden="true">↗</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="s11-link">
+                            <span>友站連結02</span>
+                            <span class="s11-arrow" aria-hidden="true">↗</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="s11-link">
+                            <span>直播賣場</span>
+                            <span class="s11-arrow" aria-hidden="true">↗</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </footer>
+
+
     <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- 老師做的動態數字累加特效 區塊進入畫面時才開始跳動，避免使用者還沒看清楚就跑完 -->
+    <!-- <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script> -->
+    <!-- <script>
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach(entry => {
+                const el = entry.target
+                if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                    counterUp(el, {
+                        duration: 5000,
+                        delay: 16,
+                    })
+                    el.classList.add('is-visible')
+                }
+            })
+        }
+
+        const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+        const el01 = document.querySelector('.counter01')
+        IO.observe(el01)
+
+        const el02 = document.querySelector('.counter02')
+        IO.observe(el02)
+
+        const el03 = document.querySelector('.counter03')
+        IO.observe(el03)
+
+        const el04 = document.querySelector('.counter04')
+        IO.observe(el04)
+    </script> -->
+
+
+
+    <!-- section 10 動畫特效 -->
+    <script>
+        (() => {
+            const section = document.getElementById("s10");
+            if (!section || section.dataset.s10Ready === "true") return;
+
+            const button = section.querySelector(".s10-motion");
+            if (!button) return;
+
+            section.dataset.s10Ready = "true";
+            button.hidden = false;
+
+            button.addEventListener("click", () => {
+                const paused = section.classList.toggle("s10-paused");
+
+                button.setAttribute("aria-pressed", String(paused));
+                button.textContent = paused
+                    ? "播放背景動畫"
+                    : "暫停背景動畫";
+            });
+        })();
+    </script>
+
+
+
+
+
+    <!-- section 09 動畫特效 -->
+
+    <script>
+        (() => {
+            const section = document.getElementById("s09");
+            if (!section || section.dataset.s09Ready === "true") return;
+
+            const form = section.querySelector("#s09-contact-form");
+            const status = section.querySelector("#s09-status");
+            const motionButton = section.querySelector(".s09-motion");
+            const submitButton = form.querySelector('[type="submit"]');
+            const nameInput = form.elements.namedItem("name");
+            const messageInput = form.elements.namedItem("message");
+
+            section.dataset.s09Ready = "true";
+
+            /* 動畫控制 */
+            motionButton.hidden = false;
+            motionButton.addEventListener("click", () => {
+                const paused = section.classList.toggle("s09-paused");
+
+                motionButton.setAttribute("aria-pressed", String(paused));
+                motionButton.textContent = paused
+                    ? "播放背景動畫"
+                    : "暫停背景動畫";
+            });
+
+            /* 避免姓名或訊息只填空白 */
+            const validateText = (input) => {
+                input.setCustomValidity(
+                    input.value.length > 0 && !input.value.trim()
+                        ? "請輸入有效內容，不能只有空白。"
+                        : ""
+                );
+            };
+
+            [nameInput, messageInput].forEach((input) => {
+                input.addEventListener("input", () => validateText(input));
+            });
+
+            /* 示範模式：阻止實際提交，不清空使用者輸入 */
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                validateText(nameInput);
+                validateText(messageInput);
+
+                if (!form.reportValidity()) return;
+
+                status.textContent =
+                    "欄位檢查完成，但尚未串接寄信服務，訊息未送出。您的填寫內容已保留在表單中。";
+
+                /*
+                 * 日後可在此串接後端 API。
+                 * 只有收到後端成功回應後，才顯示「送出成功」。
+                 * 正式上線時，後端仍須驗證欄位並處理垃圾訊息防護。
+                 */
+            });
+
+            form.addEventListener("input", () => {
+                status.textContent = "";
+            });
+
+            form.addEventListener("change", () => {
+                status.textContent = "";
+            });
+
+            form.addEventListener("reset", () => {
+                nameInput.setCustomValidity("");
+                messageInput.setCustomValidity("");
+                status.textContent = "";
+            });
+
+            submitButton.disabled = false;
+        })();
+    </script>
 
     <!-- S4 數字累加特效 -->
     <script>
@@ -1119,7 +4980,7 @@
                     });
                 },
                 {
-                    threshold: 0.35, // 當 #s04 區塊有 35% 進入畫面時才開始跳動，避免使用者還沒看清楚就跑完
+                    threshold: 0.8, // 當 #s04 區塊有 80% 進入畫面時才開始跳動，避免使用者還沒看清楚就跑完
                 }
             );
 
