@@ -242,6 +242,13 @@
             font-family: 'Noto Serif TC', serif;
         }
 
+        /* 專案作業tag的顏色 */
+        .episode-tag-color {
+
+            color: #ff0000;
+
+        }
+
         .manga-item:nth-child(3n) .episode-tag {
             background-color: var(--vermilion);
         }
@@ -289,6 +296,16 @@
 
         .highlight-resume .speech-bubble::before {
             border-color: #ffe8cc transparent transparent transparent;
+        }
+
+        /* 專案作業特別強調樣式 */
+        .highlight-project .speech-bubble {
+            background-color: #eaffb0;
+            border-color: var(--sumi-ink);
+        }
+
+        .highlight-project .speech-bubble::before {
+            border-color: #eaffb0 transparent transparent transparent;
         }
 
         /* 頁尾裝飾 */
@@ -484,6 +501,14 @@
                     <span class="episode-tag">第十八話</span>
                     <span>SPA 一頁式網站 (Gemini生成賽博龐克版)</span>
                     <span class="sfx-badge">シュッ!</span>
+                </a>
+            </li>
+
+            <li class="manga-item highlight-project">
+                <a class="speech-bubble" href="sensory-visual/index.html" target="_blank">
+                    <span class="episode-tag episode-tag-color">專案作業</span>
+                    <span>感應視覺設計工作室 (SPA 一頁式網站)</span>
+                    <span class="sfx-badge">最新作!</span>
                 </a>
             </li>
 

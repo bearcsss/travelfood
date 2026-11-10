@@ -1,0 +1,626 @@
+<!doctype html>
+
+<!--
+  感應視覺設計工作室｜VS Code 易讀編輯版
+  本檔僅整理縮排與加入導覽註解，保留原有文字、屬性、連結及功能。
+
+  編輯重點：
+  1. 使用 Ctrl+F 搜尋 S01 至 S15，可定位各章節。
+  2. 雙語文字請修改 data-zh（繁中）及 data-en（英文），
+     並同步修改標籤內文字；js/main.js 會依語言屬性更新畫面。
+  3. 圖片路徑在 src；連結在 href；不要任意更改 id 或 data-* 功能屬性。
+  4. 視覺樣式：css/style.css；互動與作品資料：js/main.js。
+  5. 將本檔以 index.html 放回原網站根目錄，
+     保留 images/、css/、js/、vendor/ 資料夾相對位置。
+-->
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="感應視覺設計工作室，融合品牌識別、超現實視覺、動態影像與沉浸式網站設計。">
+    <meta name="theme-color" content="#080808">
+    <title>感應視覺設計工作室｜Sensory Visual Design Studio</title>
+    <link rel="icon" href="images/logo-twins.jpg">
+    <link rel="stylesheet" href="vendor/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <a class="skip" href="#s03">跳至主要內容</a>
+
+    <!-- 載入動畫 -->
+    <div id="loader" aria-hidden="true">
+      <img src="images/S10-02.jpg" alt="">
+      <p>SENSORY SYSTEM / <span id="load-number">0</span>%</p>
+    </div>
+
+    <!-- 滑鼠感應游標 -->
+    <div id="cursor" aria-hidden="true"></div>
+
+    <!-- 固定頂部導覽列 -->
+    <header>
+      <a href="#s01" class="brand">
+        <img src="images/logo-twins.jpg" alt="異星雙子品牌徽章">
+        <span>SENSORY<br>VISUAL <small>DESIGN STUDIO</small></span>
+      </a>
+      <span id="section-indicator">01 / ARRIVAL</span>
+      <div class="header-actions">
+        <a class="mail" href="mailto:bearcss@gmail.com">LET’S TALK ↗</a>
+        <button id="language" aria-label="Switch language">EN</button>
+        <button id="menu-open" aria-label="開啟章節選單" aria-expanded="false" aria-controls="menu">MENU <span>▦</span></button>
+      </div>
+    </header>
+
+    <!-- 右側章節導覽 -->
+    <nav id="dots" aria-label="章節導覽">
+      <a href="#s01" aria-label="01 異星降臨" title="異星降臨"></a>
+      <a href="#s02" aria-label="02 感應宣言" title="感應宣言"></a>
+      <a href="#s03" aria-label="03 超維度視角" title="超維度視角"></a>
+      <a href="#s04" aria-label="04 維度穿越" title="維度穿越"></a>
+      <a href="#s05" aria-label="05 異星造物者" title="異星造物者"></a>
+      <a href="#s06" aria-label="06 能量脈衝" title="能量脈衝"></a>
+      <a href="#s07" aria-label="07 孵化與解構" title="孵化與解構"></a>
+      <a href="#s08" aria-label="08 異象全紀錄" title="異象全紀錄"></a>
+      <a href="#s09" aria-label="09 感官衝擊" title="感官衝擊"></a>
+      <a href="#s10" aria-label="10 感官實驗室" title="感官實驗室"></a>
+      <a href="#s11" aria-label="11 星際軌跡" title="星際軌跡"></a>
+      <a href="#s12" aria-label="12 共鳴矩陣" title="共鳴矩陣"></a>
+      <a href="#s13" aria-label="13 腦波對頻" title="腦波對頻"></a>
+      <a href="#s14" aria-label="14 發送訊號" title="發送訊號"></a>
+      <a href="#s15" aria-label="15 降臨座標" title="降臨座標"></a>
+    </nav>
+
+    <!-- 主要內容：S01 至 S15 -->
+    <main>
+
+      <!-- S01：異星降臨｜首頁主視覺 -->
+      <section id="s01" class="hero" data-name="Arrival">
+        <div class="hero-images">
+          <img class="active" src="images/s01-p03.jpg" alt="黃金章魚與三位創造者" fetchpriority="high">
+          <img src="images/s01-p02.jpg" alt="演講廳中的巨型觸手">
+          <img src="images/s01-p01.jpg" alt="異星雙子對談">
+        </div>
+        <canvas id="fluid" aria-hidden="true"></canvas>
+        <div class="hero-copy">
+          <div class="eyebrow">INDEPENDENT DESIGN STUDIO / TAIWAN</div>
+          <h1 class="" data-zh="從異星思維，<br>孵化非凡視覺。" data-en="ALIEN THINKING.<br>EXTRAORDINARY VISION.">從異星思維，<br>孵化非凡視覺。</h1>
+          <p class="" data-zh="孵化自暗黑原點的異星思維，掙脫平庸框架的黃金牢籠，為品牌注入具侵略性的視覺張力。" data-en="Hatched from the dark void, breaking the golden cage of mediocrity—injecting aggressive visual tension into every brand.">孵化自暗黑原點的異星思維，掙脫平庸框架的黃金牢籠，為品牌注入具侵略性的視覺張力。</p>
+          <a href="#s08" class="button"><span class="" data-zh="探索精選作品" data-en="Explore our work">探索精選作品</span> <span>↗</span></a>
+        </div>
+        <div class="hero-bottom">
+          <span>SENSORY VISUAL DESIGN STUDIO</span>
+          <div class="hero-controls">
+            <button data-hero="0" class="active" aria-label="主視覺一">01</button>
+            <button data-hero="1" aria-label="主視覺二">02</button>
+            <button data-hero="2" aria-label="主視覺三">03</button>
+            <button id="motion" aria-pressed="false">暫停動畫</button>
+          </div>
+          <a href="#s02">SCROLL TO SENSE ↓</a>
+        </div>
+      </section>
+
+      <!-- S02：感應宣言｜跑馬燈 -->
+      <section id="s02" class="manifesto" data-name="Manifesto">
+        <h2 class="sr-only">感應宣言 Manifesto</h2>
+        <div class="marquee">
+          <div>HATCHED FROM THE DARK VOID ✳ ALIEN PERSPECTIVE ✳ HATCHED FROM THE DARK VOID ✳ ALIEN PERSPECTIVE ✳ HATCHED FROM THE DARK VOID ✳ ALIEN PERSPECTIVE ✳ HATCHED FROM THE DARK VOID ✳ ALIEN PERSPECTIVE ✳ </div>
+        </div>
+        <div class="marquee reverse">
+          <div>BREAKING THE GOLDEN CAGE ↗ SENSORY VISUAL ↗ BREAKING THE GOLDEN CAGE ↗ SENSORY VISUAL ↗ BREAKING THE GOLDEN CAGE ↗ SENSORY VISUAL ↗ BREAKING THE GOLDEN CAGE ↗ SENSORY VISUAL ↗ </div>
+        </div>
+      </section>
+
+      <!-- S03：超維度視角｜設計理念 -->
+      <section id="s03" class="wrap" data-name="Philosophy">
+        <div class="section-head">
+          <span class="eyebrow">03 / PHILOSOPHY</span>
+          <h2 class="" data-zh="理性是骨架，<br>感性是宇宙。" data-en="ORDER IN STRUCTURE.<br>WONDER IN SPIRIT.">理性是骨架，<br>感性是宇宙。</h2>
+        </div>
+        <div class="split">
+          <img class="" src="images/s01-p01.jpg" alt="異星雙子於皮椅對談" loading="lazy" width="1672" height="941">
+          <div class="copy">
+            <h3 class="" data-zh="我們從不同維度，看見品牌的本質。" data-en="A different dimension reveals the essence of a brand.">我們從不同維度，看見品牌的本質。</h3>
+            <p class="" data-zh="在精準的網格裡，容納無邊界的想像。從商業命題出發，解構熟悉的符號，以超現實影像與清晰策略，建立可以被感知、被記住的品牌語言。" data-en="Precise grids make room for boundless imagination. We turn business questions into a memorable visual language through surreal imagery and clear strategy.">在精準的網格裡，容納無邊界的想像。從商業命題出發，解構熟悉的符號，以超現實影像與清晰策略，建立可以被感知、被記住的品牌語言。</p>
+            <div class="rule-row">01 / <span class="" data-zh="解構問題" data-en="Decode the challenge">解構問題</span></div>
+            <div class="rule-row">02 / <span class="" data-zh="重組感知" data-en="Reframe perception">重組感知</span></div>
+            <div class="rule-row">03 / <span class="" data-zh="創造共鳴" data-en="Create resonance">創造共鳴</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S04：維度穿越｜視差敘事 -->
+      <section id="s04" class="shift" data-name="Dimensional Shift">
+        <img class="parallax" src="images/s01-p02.jpg" alt="巨型觸手懸浮於灰階演講廳" loading="lazy" width="1672" height="941">
+        <div class="shift-copy">
+          <span class="eyebrow">04 / DIMENSIONAL SHIFT</span>
+          <h2 class="" data-zh="讓不可能，<br>成為第一眼。" data-en="MAKE THE IMPOSSIBLE<br>YOUR FIRST IMPRESSION.">讓不可能，<br>成為第一眼。</h2>
+        </div>
+      </section>
+
+      <!-- S05：異星造物者｜關於我們 -->
+      <section id="s05" class="wrap" data-name="About">
+        <div class="section-head">
+          <span class="eyebrow">05 / ABOUT</span>
+          <h2 class="" data-zh="異星造物者" data-en="THE CREATORS">異星造物者</h2>
+        </div>
+        <div class="split">
+          <img class="" src="images/s01-p03.jpg" alt="黃金章魚與三位核心創造者" loading="lazy" width="1672" height="941">
+          <div class="copy">
+            <h3 class="" data-zh="跨越領域，共同感應。" data-en="Different disciplines. One shared vision.">跨越領域，共同感應。</h3>
+            <p class="" data-zh="我們以三種專業視角協作，串起品牌策略、視覺敘事與數位體驗。以下為專案協作職能。" data-en="Our projects connect brand strategy, visual storytelling and digital experience through three collaborative roles.">我們以三種專業視角協作，串起品牌策略、視覺敘事與數位體驗。以下為專案協作職能。</p>
+            <div class="rule-row">
+              <h3 class="" data-zh="視覺總監" data-en="Visual Direction">視覺總監</h3>
+              <p class="" data-zh="定義品牌語言與影像美學。" data-en="Defines the visual language and art direction.">定義品牌語言與影像美學。</p>
+            </div>
+            <div class="rule-row">
+              <h3 class="" data-zh="動態架構師" data-en="Motion & Interaction">動態架構師</h3>
+              <p class="" data-zh="將靜態構想轉化為流動體驗。" data-en="Transforms ideas into motion and interaction.">將靜態構想轉化為流動體驗。</p>
+            </div>
+            <div class="rule-row">
+              <h3 class="" data-zh="品牌策展人" data-en="Brand Curation">品牌策展人</h3>
+              <p class="" data-zh="讓故事與每個接觸點產生連結。" data-en="Connects the story across every touchpoint.">讓故事與每個接觸點產生連結。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S06：能量脈衝｜服務領域 -->
+      <section id="s06" class="wrap" data-name="Capabilities">
+        <div class="section-head">
+          <span class="eyebrow">06 / CAPABILITIES</span>
+          <h2 class="" data-zh="讓感應，延伸至每個觸點。" data-en="A SPECTRUM OF POSSIBILITIES.">讓感應，延伸至每個觸點。</h2>
+        </div>
+        <div class="services">
+          <a class="service" href="#s14" data-service="品牌識別系統">
+            <span class="big-index">01</span>
+            <h3 class="" data-zh="品牌識別系統" data-en="Brand Identity">品牌識別系統</h3>
+            <p class="" data-zh="從定位、標誌到應用規範，建立一致而鮮明的品牌語言。" data-en="Positioning, identity and guidelines for a coherent brand.">從定位、標誌到應用規範，建立一致而鮮明的品牌語言。</p>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="service" href="#s14" data-service="超現實 3D 視覺">
+            <span class="big-index">02</span>
+            <h3 class="" data-zh="超現實 3D 視覺" data-en="Surreal Visuals">超現實 3D 視覺</h3>
+            <p class="" data-zh="以角色、材質與場景，將抽象概念轉化為有張力的影像。" data-en="Characters, materials and worlds that make ideas tangible.">以角色、材質與場景，將抽象概念轉化為有張力的影像。</p>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="service" href="#s14" data-service="動態影像設計">
+            <span class="big-index">03</span>
+            <h3 class="" data-zh="動態影像設計" data-en="Motion Design">動態影像設計</h3>
+            <p class="" data-zh="讓品牌故事透過節奏、轉場與動態敘事被看見。" data-en="Rhythm, transitions and moving stories that capture attention.">讓品牌故事透過節奏、轉場與動態敘事被看見。</p>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="service" href="#s14" data-service="沉浸式 SPA 網站">
+            <span class="big-index">04</span>
+            <h3 class="" data-zh="沉浸式 SPA 網站" data-en="Immersive Websites">沉浸式 SPA 網站</h3>
+            <p class="" data-zh="整合響應式介面與細緻互動，讓探索成為體驗。" data-en="Responsive interfaces and thoughtful interaction for exploration.">整合響應式介面與細緻互動，讓探索成為體驗。</p>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- S07：孵化與解構｜設計流程 -->
+      <section id="s07" class="wrap light" data-name="Process">
+        <div class="section-head">
+          <span class="eyebrow">07 / PROCESS</span>
+          <h2 class="" data-zh="每個非凡，都有起點。" data-en="FROM ORIGIN TO RESONANCE.">每個非凡，都有起點。</h2>
+        </div>
+        <div class="process">
+          <article>
+            <span class="eyebrow">01</span>
+            <img class="" src="images/S10-02.jpg" alt="黑蛋期" loading="lazy" width="1672" height="941">
+            <h3 class="" data-zh="黑蛋期" data-en="Incubate">黑蛋期</h3>
+            <p class="" data-zh="傾聽需求，凝聚核心命題。" data-en="Listen and define the central challenge.">傾聽需求，凝聚核心命題。</p>
+          </article>
+          <article>
+            <span class="eyebrow">02</span>
+            <img class="" src="images/logo-twins.jpg" alt="破籠期" loading="lazy" width="1672" height="941">
+            <h3 class="" data-zh="破籠期" data-en="Break free">破籠期</h3>
+            <p class="" data-zh="解構框架，探索概念方向。" data-en="Challenge assumptions and explore concepts.">解構框架，探索概念方向。</p>
+          </article>
+          <article>
+            <span class="eyebrow">03</span>
+            <img class="" src="images/S10-01.jpg" alt="觸手期" loading="lazy" width="1672" height="941">
+            <h3 class="" data-zh="觸手期" data-en="Extend">觸手期</h3>
+            <p class="" data-zh="視覺開發，延伸跨媒介應用。" data-en="Develop visuals across multiple media.">視覺開發，延伸跨媒介應用。</p>
+          </article>
+          <article>
+            <span class="eyebrow">04</span>
+            <img class="" src="images/logo-twins.jpg" alt="感應期" loading="lazy" width="1672" height="941">
+            <h3 class="" data-zh="感應期" data-en="Resonate">感應期</h3>
+            <p class="" data-zh="測試交付，讓品牌開始共鳴。" data-en="Refine, deliver and let the brand resonate.">測試交付，讓品牌開始共鳴。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- S08：異象全紀錄｜精選作品與分類 -->
+      <section id="s08" class="wrap" data-name="Selected Works">
+        <div class="section-head">
+          <span class="eyebrow">08 / SELECTED WORKS</span>
+          <h2 class="" data-zh="異象全紀錄" data-en="SELECTED WORKS">異象全紀錄</h2>
+        </div>
+        <div class="work-toolbar">
+          <p><span class="" data-zh="六種視角，一個不設限的宇宙。" data-en="Six perspectives. One limitless universe.">六種視角，一個不設限的宇宙。</span></p>
+          <div class="filters" aria-label="作品分類">
+            <button data-filter="all" aria-pressed="true"><span class="" data-zh="全部" data-en="All">全部</span></button>
+            <button data-filter="branding" aria-pressed="false"><span class="" data-zh="品牌識別" data-en="Branding">品牌識別</span></button>
+            <button data-filter="surreal" aria-pressed="false"><span class="" data-zh="3D 異象" data-en="Surreal">3D 異象</span></button>
+            <button data-filter="curation" aria-pressed="false"><span class="" data-zh="跨界策展" data-en="Curation">跨界策展</span></button>
+          </div>
+        </div>
+        <p id="work-count" class="sr-only" aria-live="polite">6 件作品</p>
+        <div class="works">
+          <button class="work" data-work="0" data-category="surreal">
+            <img class="" src="images/S08-01.jpg" alt="古典沙龍的雙生深淵" loading="lazy" width="1672" height="941">
+            <div class="work-meta">
+              <span>01 / SURREAL</span>
+              <span>↗</span>
+            </div>
+            <h3 class="" data-zh="古典沙龍的雙生深淵" data-en="Dual Abyss in the Salon">古典沙龍的雙生深淵</h3>
+          </button>
+          <button class="work" data-work="1" data-category="branding">
+            <img class="" src="images/S08-02.jpg" alt="凝視者雙子：異星原點" loading="lazy" width="1672" height="941">
+            <div class="work-meta">
+              <span>02 / BRANDING</span>
+              <span>↗</span>
+            </div>
+            <h3 class="" data-zh="凝視者雙子：異星原點" data-en="The Gazing Twins: Alien Genesis">凝視者雙子：異星原點</h3>
+          </button>
+          <button class="work" data-work="2" data-category="branding">
+            <img class="" src="images/S08-03.jpg" alt="黃金觸手議會：赤裸共鳴" loading="lazy" width="1672" height="941">
+            <div class="work-meta">
+              <span>03 / BRANDING</span>
+              <span>↗</span>
+            </div>
+            <h3 class="" data-zh="黃金觸手議會：赤裸共鳴" data-en="Council of Golden Tentacles">黃金觸手議會：赤裸共鳴</h3>
+          </button>
+          <button class="work" data-work="3" data-category="surreal">
+            <img class="" src="images/S08-04.jpg" alt="白磁湯屋的巨鯉異象" loading="lazy" width="1672" height="941">
+            <div class="work-meta">
+              <span>04 / SURREAL</span>
+              <span>↗</span>
+            </div>
+            <h3 class="" data-zh="白磁湯屋的巨鯉異象" data-en="Giant Carp in White Bathhouse">白磁湯屋的巨鯉異象</h3>
+          </button>
+          <button class="work" data-work="4" data-category="curation">
+            <img class="" src="images/S08-05.jpg" alt="鐵窗陽台上的金衣寓言" loading="lazy" width="1672" height="941">
+            <div class="work-meta">
+              <span>05 / CURATION</span>
+              <span>↗</span>
+            </div>
+            <h3 class="" data-zh="鐵窗陽台上的金衣寓言" data-en="Golden Fable on Urban Balcony">鐵窗陽台上的金衣寓言</h3>
+          </button>
+          <button class="work" data-work="5" data-category="curation">
+            <img class="" src="images/S08-06.jpg" alt="破曉天際線：蒼鷹與純真之巔" loading="lazy" width="1672" height="941">
+            <div class="work-meta">
+              <span>06 / CURATION</span>
+              <span>↗</span>
+            </div>
+            <h3 class="" data-zh="破曉天際線：蒼鷹與純真之巔" data-en="Dawn Skyline: Eagle & Innocence">破曉天際線：蒼鷹與純真之巔</h3>
+          </button>
+        </div>
+        <p class="note"><span class="" data-zh="概念視覺作品集；專案敘事依企劃呈現，不代表已完成的商業委託。" data-en="Concept visual portfolio; project narratives do not imply completed commercial commissions.">概念視覺作品集；專案敘事依企劃呈現，不代表已完成的商業委託。</span></p>
+      </section>
+
+      <!-- S09：感官衝擊｜旗艦輪播 -->
+      <section id="s09" class="spotlight" data-name="Spotlight">
+        <div class="spot-image">
+          <img class="spot-img" src="images/S08-06.jpg" alt="破曉天際線：蒼鷹與純真之巔" loading="lazy" width="1672" height="941">
+        </div>
+        <div class="spot-copy">
+          <span class="eyebrow">09 / FLAGSHIP SPOTLIGHT</span>
+          <h2 id="spot-title">破曉天際線：蒼鷹與純真之巔</h2>
+          <p id="spot-desc">在城市的黃金時刻，凝聚宏觀視野與純粹初心。</p>
+          <button id="spot-detail" class="button"><span class="" data-zh="深入探索" data-en="Explore project">深入探索</span> ↗</button>
+          <div class="carousel-controls">
+            <button id="prev" aria-label="上一張">←</button>
+            <span id="slide-count">01 / 03</span>
+            <button id="next" aria-label="下一張">→</button>
+            <button id="play" aria-pressed="false"><span class="" data-zh="暫停" data-en="Pause">暫停</span></button>
+          </div>
+          <div class="slide-progress">
+            <i></i>
+          </div>
+          <p class="note"><span class="" data-zh="概念提案｜商業成效數據尚待提供。" data-en="Concept proposal | Commercial results not yet provided.">概念提案｜商業成效數據尚待提供。</span></p>
+        </div>
+      </section>
+
+      <!-- S10：感官實驗室｜黑蛋互動 -->
+      <section id="s10" class="wrap" data-name="Interactive Lab">
+        <div class="section-head">
+          <span class="eyebrow">10 / INTERACTIVE LAB</span>
+          <h2 class="" data-zh="打破框架，釋放未知。" data-en="BREAK THE CAGE. RELEASE THE UNKNOWN.">打破框架，釋放未知。</h2>
+        </div>
+        <div class="split lab">
+          <div class="lab-stage">
+            <button id="egg" aria-label="為黑蛋充能，每次增加 25%">
+              <img id="lab-image" src="images/S10-02.jpg" alt="金光裂痕黑蛋" width="800" height="800">
+              <svg id="cage" viewBox="0 0 500 500" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M90 130 250 50 410 130 410 380 250 450 90 380Z M90 130 250 210 410 130 M250 210V450 M140 105V400 M195 78V425 M305 78V425 M360 105V400 M90 255 250 330 410 255"/>
+                </g>
+              </svg>
+            </button>
+            <span class="lab-caption">EXPERIMENT 001 / THE GOLDEN CAGE</span>
+          </div>
+          <div class="copy">
+            <span class="eyebrow">INTERACTIVE EXPERIMENT</span>
+            <h3 class="" data-zh="創意，不該被封存。" data-en="IDEAS ARE MEANT TO ESCAPE.">創意，不該被封存。</h3>
+            <p class="" data-zh="連續點擊黑蛋，或拖曳能量滑桿。當能量達到 100%，看看框架之外的可能。" data-en="Tap the egg or move the energy slider. Reach 100% to discover what lies beyond the frame.">連續點擊黑蛋，或拖曳能量滑桿。當能量達到 100%，看看框架之外的可能。</p>
+            <div class="energy-display">
+              <output id="energy-number">0%</output>
+              <span>SENSORY ENERGY</span>
+            </div>
+            <label for="energy"><span class="" data-zh="感應能量" data-en="Sensory energy">感應能量</span></label>
+            <input id="energy" type="range" min="0" max="100" value="0" step="1">
+            <p id="fortune" role="status"><span class="" data-zh="等待第一道感應訊號。" data-en="Waiting for the first signal.">等待第一道感應訊號。</span></p>
+            <button id="reset" class="text-button"><span class="" data-zh="重新封印實驗" data-en="Reset experiment">重新封印實驗</span> ↺</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- S11：星際軌跡｜時間軸 -->
+      <section id="s11" class="wrap" data-name="Timeline">
+        <div class="section-head">
+          <span class="eyebrow">11 / TIMELINE</span>
+          <h2 class="" data-zh="從原點，向未知前進。" data-en="AN EVOLVING VISION.">從原點，向未知前進。</h2>
+        </div>
+        <p class="note"><span class="" data-zh="品牌敘事時間軸（企劃示意，待核實正式沿革）" data-en="Illustrative brand timeline — milestones pending verification">品牌敘事時間軸（企劃示意，待核實正式沿革）</span></p>
+        <div class="timeline">
+          <article>
+            <time>2021</time>
+            <div>
+              <h3 class="" data-zh="惑星萌芽" data-en="Genesis">惑星萌芽</h3>
+              <p class="" data-zh="從異星視角，探索品牌創作的原點。" data-en="Exploring the origins of an alien perspective.">從異星視角，探索品牌創作的原點。</p>
+            </div>
+          </article>
+          <article>
+            <time>2022</time>
+            <div>
+              <h3 class="" data-zh="符號成形" data-en="Identity">符號成形</h3>
+              <p class="" data-zh="雙子意象凝聚為視覺語言。" data-en="The twins become a visual language.">雙子意象凝聚為視覺語言。</p>
+            </div>
+          </article>
+          <article>
+            <time>2023</time>
+            <div>
+              <h3 class="" data-zh="跨域延伸" data-en="Expansion">跨域延伸</h3>
+              <p class="" data-zh="從靜態畫面，延展至動態敘事。" data-en="Expanding from still imagery into motion.">從靜態畫面，延展至動態敘事。</p>
+            </div>
+          </article>
+          <article>
+            <time>2024</time>
+            <div>
+              <h3 class="" data-zh="感官連結" data-en="Connection">感官連結</h3>
+              <p class="" data-zh="融合網站互動與沉浸式體驗。" data-en="Connecting interaction and immersive experience.">融合網站互動與沉浸式體驗。</p>
+            </div>
+          </article>
+          <article>
+            <time>2025</time>
+            <div>
+              <h3 class="" data-zh="破格共鳴" data-en="Resonance">破格共鳴</h3>
+              <p class="" data-zh="以系列創作對話城市與生命。" data-en="A dialogue with urban life through visual series.">以系列創作對話城市與生命。</p>
+            </div>
+          </article>
+          <article>
+            <time>2026</time>
+            <div>
+              <h3 class="" data-zh="跨維度領航" data-en="New Horizons">跨維度領航</h3>
+              <p class="" data-zh="讓創意觸手，延伸至下一個維度。" data-en="Reaching into the next creative dimension.">讓創意觸手，延伸至下一個維度。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- S12：共鳴矩陣｜數據與獎項 -->
+      <section id="s12" class="wrap light" data-name="Recognition">
+        <div class="section-head">
+          <span class="eyebrow">12 / RECOGNITION</span>
+          <h2 class="" data-zh="讓作品，成為座標。" data-en="CREATIVITY, MADE TANGIBLE.">讓作品，成為座標。</h2>
+        </div>
+        <div class="metrics">
+          <div>
+            <strong data-count="6">0</strong>
+            <p class="" data-zh="精選概念作品" data-en="Selected concepts">精選概念作品</p>
+          </div>
+          <div>
+            <strong data-count="4">0</strong>
+            <p class="" data-zh="核心服務領域" data-en="Core disciplines">核心服務領域</p>
+          </div>
+          <div>
+            <strong data-count="15">0</strong>
+            <p class="" data-zh="感應探索章節" data-en="Chapters to explore">感應探索章節</p>
+          </div>
+        </div>
+        <p class="note"><span class="" data-zh="得獎紀錄與合作品牌待提供。以下為目標獎項研究方向，非獲獎聲明。" data-en="Awards and client records pending. The following are awards of interest, not claims of recognition.">得獎紀錄與合作品牌待提供。以下為目標獎項研究方向，非獲獎聲明。</span></p>
+        <div class="awards">
+          <span>Red Dot</span>
+          <span>iF DESIGN</span>
+          <span>Awwwards</span>
+          <span>GOLDEN PIN</span>
+        </div>
+      </section>
+
+      <!-- S13：腦波對頻｜常見問題 -->
+      <section id="s13" class="wrap" data-name="FAQ">
+        <div class="section-head">
+          <span class="eyebrow">13 / FAQ</span>
+          <h2 class="" data-zh="先對頻，再創造。" data-en="GET ON THE SAME WAVELENGTH.">先對頻，再創造。</h2>
+        </div>
+        <div class="split faq-layout">
+          <img class="" src="images/S08-02.jpg" alt="異星雙子凝視立像" loading="lazy" width="1672" height="941">
+          <div>
+            <details>
+              <summary><span class="" data-zh="如何估算專案預算？" data-en="How is a project priced?">如何估算專案預算？</span><span>＋</span></summary>
+              <p class="" data-zh="依工作範圍、交付項目與時程個別評估。歡迎先提供需求與預算範圍，我們將據此討論合適的合作方式。" data-en="Pricing depends on scope, deliverables and schedule. Share your needs and budget to begin a tailored discussion.">依工作範圍、交付項目與時程個別評估。歡迎先提供需求與預算範圍，我們將據此討論合適的合作方式。</p>
+            </details>
+            <details>
+              <summary><span class="" data-zh="設計需要多少時間？" data-en="How long does a project take?">設計需要多少時間？</span><span>＋</span></summary>
+              <p class="" data-zh="時程將於確認需求後安排，包含提案、設計、修訂與交付階段；急件請在諮詢時註明。" data-en="A schedule is agreed after scoping, covering concepts, design, revisions and delivery. Please flag urgent deadlines.">時程將於確認需求後安排，包含提案、設計、修訂與交付階段；急件請在諮詢時註明。</p>
+            </details>
+            <details>
+              <summary><span class="" data-zh="可以遠端或跨國合作嗎？" data-en="Can we collaborate remotely?">可以遠端或跨國合作嗎？</span><span>＋</span></summary>
+              <p class="" data-zh="可透過線上會議與文件協作；語言、時區與溝通頻率將在合作前確認。" data-en="Online meetings and shared documents support remote collaboration. Language, time zones and communication are agreed in advance.">可透過線上會議與文件協作；語言、時區與溝通頻率將在合作前確認。</p>
+            </details>
+            <details>
+              <summary><span class="" data-zh="作品與素材的權利如何安排？" data-en="How are usage rights handled?">作品與素材的權利如何安排？</span><span>＋</span></summary>
+              <p class="" data-zh="交付範圍、著作權與授權方式以雙方合約為準；第三方字型、影像與素材另依其授權規範。" data-en="Ownership, deliverables and usage rights follow the agreed contract. Third-party assets retain their respective license terms.">交付範圍、著作權與授權方式以雙方合約為準；第三方字型、影像與素材另依其授權規範。</p>
+            </details>
+            <details>
+              <summary><span class="" data-zh="開始合作前需要準備什麼？" data-en="What should I prepare?">開始合作前需要準備什麼？</span><span>＋</span></summary>
+              <p class="" data-zh="請提供品牌背景、目標受眾、專案需求、參考方向與預計時程。尚無完整簡報，也可以先來信討論。" data-en="Share your brand background, audience, needs, references and timeline. An initial conversation is welcome even without a full brief.">請提供品牌背景、目標受眾、專案需求、參考方向與預計時程。尚無完整簡報，也可以先來信討論。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- S14：發送訊號｜聯絡表單 -->
+      <section id="s14" class="wrap contact" data-name="Contact">
+        <div class="section-head">
+          <span class="eyebrow">14 / CONTACT</span>
+          <h2 class="" data-zh="下一個異象，<br>由你發起。" data-en="LET’S CREATE<br>WHAT COMES NEXT.">下一個異象，<br>由你發起。</h2>
+        </div>
+        <div class="split">
+          <div class="copy">
+            <p class="eyebrow">TRANSMIT YOUR SIGNAL</p>
+            <h3 class="" data-zh="讓我們認識你的品牌，<br>以及你想打破的框架。" data-en="Tell us about your brand<br>and the boundaries you want to break.">讓我們認識你的品牌，<br>以及你想打破的框架。</h3>
+            <a class="contact-email" href="mailto:bearcss@gmail.com">bearcss@gmail.com ↗</a>
+            <p class="note"><span class="" data-zh="表單會開啟你的郵件軟體，請確認內容後自行寄送。此頁不會直接傳送或儲存資料。" data-en="This form opens your email application. Review and send the draft yourself. This page does not transmit or store your information.">表單會開啟你的郵件軟體，請確認內容後自行寄送。此頁不會直接傳送或儲存資料。</span></p>
+          </div>
+          <form id="contact-form">
+            <div class="form-row">
+              <label>
+                <span class="" data-zh="稱呼 *" data-en="Name *">稱呼 *</span>
+                <input name="name" required maxlength="80" autocomplete="name">
+              </label>
+              <label>
+                <span class="" data-zh="聯絡信箱 *" data-en="Email *">聯絡信箱 *</span>
+                <input name="email" type="email" required maxlength="150" autocomplete="email">
+              </label>
+            </div>
+            <fieldset>
+              <legend><span class="" data-zh="需求領域（可複選）" data-en="Services (select all that apply)">需求領域（可複選）</span></legend>
+              <label class="check">
+                <input type="checkbox" name="service" value="品牌識別系統">
+                <span class="" data-zh="品牌識別系統" data-en="Brand Identity">品牌識別系統</span>
+              </label>
+              <label class="check">
+                <input type="checkbox" name="service" value="超現實 3D 視覺">
+                <span class="" data-zh="超現實 3D 視覺" data-en="Surreal Visuals">超現實 3D 視覺</span>
+              </label>
+              <label class="check">
+                <input type="checkbox" name="service" value="動態影像設計">
+                <span class="" data-zh="動態影像設計" data-en="Motion Design">動態影像設計</span>
+              </label>
+              <label class="check">
+                <input type="checkbox" name="service" value="沉浸式 SPA 網站">
+                <span class="" data-zh="沉浸式 SPA 網站" data-en="Immersive Websites">沉浸式 SPA 網站</span>
+              </label>
+            </fieldset>
+            <label for="budget"><span class="" data-zh="預算參考（新臺幣）" data-en="Indicative budget (TWD)">預算參考（新臺幣）</span> <output id="budget-output">NT$ 100,000</output></label>
+            <input id="budget" name="budget" type="range" min="20000" max="500000" step="10000" value="100000">
+            <label>
+              <span class="" data-zh="專案簡述 *" data-en="Project brief *">專案簡述 *</span>
+              <textarea name="message" rows="4" required minlength="10" maxlength="3000"></textarea>
+            </label>
+            <button type="submit" class="button"><span class="" data-zh="建立諮詢郵件" data-en="Prepare email draft">建立諮詢郵件</span> ↗</button>
+            <p id="form-status" role="status"></p>
+            <textarea id="email-copy" aria-label="可複製的郵件內容" hidden readonly></textarea>
+          </form>
+        </div>
+      </section>
+
+      <!-- S15：降臨座標｜地圖與聯絡資訊 -->
+      <section id="s15" class="wrap" data-name="Coordinates">
+        <div class="section-head">
+          <span class="eyebrow">15 / COORDINATES</span>
+          <h2 class="" data-zh="感應，沒有距離。" data-en="GOOD IDEAS TRAVEL.">感應，沒有距離。</h2>
+        </div>
+        <div class="split">
+          <div class="map-panel" id="map-panel">
+            <div class="map-grid" aria-hidden="true">＋</div>
+            <div>
+              <span class="eyebrow">TAIWAN / REMOTE COLLABORATION</span>
+              <h3 class="" data-zh="基地座標・待確認" data-en="BASE COORDINATES · PENDING">基地座標・待確認</h3>
+              <p class="" data-zh="尚未提供公開地址；地圖僅顯示台灣區域概覽。" data-en="No public studio address has been supplied. The map shows Taiwan only.">尚未提供公開地址；地圖僅顯示台灣區域概覽。</p>
+              <button id="load-map" class="text-button"><span class="" data-zh="載入 Google 地圖（需連線）" data-en="Load Google map (internet required)">載入 Google 地圖（需連線）</span> ↗</button>
+            </div>
+          </div>
+          <div class="copy">
+            <h3 class="" data-zh="預約一場創意對話。" data-en="BOOK A CREATIVE CONVERSATION.">預約一場創意對話。</h3>
+            <div class="rule-row">
+              <span class="" data-zh="地址與預約專線：待提供" data-en="Address & phone: to be provided">地址與預約專線：待提供</span>
+            </div>
+            <div class="rule-row">
+              <span class="" data-zh="預約方式：請先來信洽詢" data-en="Appointments: please contact us by email">預約方式：請先來信洽詢</span>
+            </div>
+            <a href="mailto:bearcss@gmail.com" class="contact-email">bearcss@gmail.com ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 頁尾資訊 -->
+    <footer>
+      <div class="footer-top">
+        <img class="" src="images/logo-twins.jpg" alt="異星雙子徽章" loading="lazy" width="1672" height="941">
+        <a href="mailto:bearcss@gmail.com">bearcss@gmail.com ↗</a>
+        <a href="#s01">BACK TO TOP ↑</a>
+      </div>
+      <div class="footer-word">SENSORY VISUAL</div>
+      <div class="footer-bottom">
+        <span>© 2026 SENSORY VISUAL DESIGN STUDIO</span>
+        <span>Behance / Instagram / Dribbble / LinkedIn — <span class="" data-zh="帳號待提供" data-en="Accounts pending">帳號待提供</span></span>
+        <button id="privacy-open"><span class="" data-zh="隱私權政策" data-en="Privacy">隱私權政策</span></button>
+      </div>
+    </footer>
+
+    <!-- 全螢幕選單 -->
+    <dialog id="menu">
+      <div class="dialog-top">
+        <span>SENSORY VISUAL / INDEX</span>
+        <button data-close="menu" aria-label="關閉選單">CLOSE ×</button>
+      </div>
+      <nav class="menu-grid">
+        <a href="#s01"><span>01</span><strong class="" data-zh="異星降臨" data-en="Arrival">異星降臨</strong><small>ARRIVAL</small></a>
+        <a href="#s02"><span>02</span><strong class="" data-zh="感應宣言" data-en="Manifesto">感應宣言</strong><small>MANIFESTO</small></a>
+        <a href="#s03"><span>03</span><strong class="" data-zh="超維度視角" data-en="Philosophy">超維度視角</strong><small>PHILOSOPHY</small></a>
+        <a href="#s04"><span>04</span><strong class="" data-zh="維度穿越" data-en="Dimensional Shift">維度穿越</strong><small>DIMENSIONAL SHIFT</small></a>
+        <a href="#s05"><span>05</span><strong class="" data-zh="異星造物者" data-en="About">異星造物者</strong><small>ABOUT</small></a>
+        <a href="#s06"><span>06</span><strong class="" data-zh="能量脈衝" data-en="Capabilities">能量脈衝</strong><small>CAPABILITIES</small></a>
+        <a href="#s07"><span>07</span><strong class="" data-zh="孵化與解構" data-en="Process">孵化與解構</strong><small>PROCESS</small></a>
+        <a href="#s08"><span>08</span><strong class="" data-zh="異象全紀錄" data-en="Selected Works">異象全紀錄</strong><small>SELECTED WORKS</small></a>
+        <a href="#s09"><span>09</span><strong class="" data-zh="感官衝擊" data-en="Spotlight">感官衝擊</strong><small>SPOTLIGHT</small></a>
+        <a href="#s10"><span>10</span><strong class="" data-zh="感官實驗室" data-en="Interactive Lab">感官實驗室</strong><small>INTERACTIVE LAB</small></a>
+        <a href="#s11"><span>11</span><strong class="" data-zh="星際軌跡" data-en="Timeline">星際軌跡</strong><small>TIMELINE</small></a>
+        <a href="#s12"><span>12</span><strong class="" data-zh="共鳴矩陣" data-en="Recognition">共鳴矩陣</strong><small>RECOGNITION</small></a>
+        <a href="#s13"><span>13</span><strong class="" data-zh="腦波對頻" data-en="FAQ">腦波對頻</strong><small>FAQ</small></a>
+        <a href="#s14"><span>14</span><strong class="" data-zh="發送訊號" data-en="Contact">發送訊號</strong><small>CONTACT</small></a>
+        <a href="#s15"><span>15</span><strong class="" data-zh="降臨座標" data-en="Coordinates">降臨座標</strong><small>COORDINATES</small></a>
+      </nav>
+    </dialog>
+
+    <!-- 作品詳情燈箱：內容由 js/main.js 動態填入 -->
+    <dialog id="project">
+      <div class="dialog-top">
+        <span id="project-index">PROJECT</span>
+        <button data-close="project" aria-label="關閉作品">CLOSE ×</button>
+      </div>
+      <div id="project-body"></div>
+      <div class="project-nav">
+        <button id="project-prev">← <span class="" data-zh="上一件" data-en="Previous">上一件</span></button>
+        <button id="project-next"><span class="" data-zh="下一件" data-en="Next">下一件</span> →</button>
+      </div>
+    </dialog>
+
+    <!-- 隱私權政策視窗 -->
+    <dialog id="privacy">
+      <div class="dialog-top">
+        <span>PRIVACY</span>
+        <button data-close="privacy">CLOSE ×</button>
+      </div>
+      <h2 class="" data-zh="隱私權政策" data-en="Privacy policy">隱私權政策</h2>
+      <p class="" data-zh="本網站不使用分析追蹤或廣告 Cookie。聯絡表單資料僅用於在您的裝置建立郵件草稿；是否寄出由您決定。點選載入 Google 地圖後，您的瀏覽器會連線至 Google，適用其隱私權政策。隱私問題請聯絡 bearcss@gmail.com。" data-en="This website uses no analytics or advertising cookies. Form data is used only to prepare an email draft on your device. You decide whether to send it. Loading Google Maps connects your browser to Google and is subject to its privacy policy. Contact bearcss@gmail.com with privacy questions.">本網站不使用分析追蹤或廣告 Cookie。聯絡表單資料僅用於在您的裝置建立郵件草稿；是否寄出由您決定。點選載入 Google 地圖後，您的瀏覽器會連線至 Google，適用其隱私權政策。隱私問題請聯絡 bearcss@gmail.com。</p>
+    </dialog>
+    <script src="vendor/wow.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
